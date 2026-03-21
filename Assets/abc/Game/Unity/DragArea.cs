@@ -5,7 +5,8 @@ using UnityEngine.Serialization;
 
 namespace abc.Game.Unity
 {
-        public class DragArea : MonoBehaviour, IDragHandler, IHand.IUser
+        public class DragArea : MonoBehaviour, 
+            IDragHandler, IHand.IUser, IPointerDownHandler
         {
             [SerializeField] private Hand target;
             IHand IHand.IUser.Target => target;
@@ -16,6 +17,10 @@ namespace abc.Game.Unity
                 (this as IHand.IUser).TryMoveTo(eventData.position.x, eventData.position.y);
             }
 
+            public void OnPointerDown(PointerEventData eventData)
+            {
+                (this as IHand.IUser).TryMoveTo(eventData.position.x, eventData.position.y);
+            }
         }
     
 }

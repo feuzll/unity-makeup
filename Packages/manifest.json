@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.kyrylokuzyk.primetween": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
     "com.unity.2d.psdimporter": "12.0.1",
     "com.unity.ide.rider": "3.0.39",
     "com.unity.ugui": "2.0.0",

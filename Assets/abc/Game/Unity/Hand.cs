@@ -1,5 +1,6 @@
 using System;
 using abc.Game.Model;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -10,7 +11,12 @@ namespace abc.Game.Unity
     public partial class Hand : MonoBehaviour, IHand
     {
         [SerializeField] private Canvas canvas;
+        [SerializeField] private float followDuration = 0.12f;
+        [SerializeField] private Ease followEase = Ease.OutQuad;
+
         private RectTransform _rectTransform;
+        private PrimeTween.Tween _moveTween;
+
 
         private void Awake()
         {
@@ -24,11 +30,15 @@ namespace abc.Game.Unity
                 ? null
                 : canvas.worldCamera;
 
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    parentRect, new Vector2(x, y), cam, out var localPoint))
-            {
-                _rectTransform.anchoredPosition = localPoint;
-            }
+            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    parentRect, new Vector2(x, y), cam, out var localPoint)) return;
+            
+            _moveTween.Stop();
+            _moveTween = PrimeTween.Tween.UIAnchoredPosition(
+                _rectTransform,
+                localPoint,
+                followDuration,
+                followEase);
         }
     }
 }

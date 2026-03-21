@@ -1170,6 +1170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f810694f04241bae37685e18fbad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Hand
+  canvas: {fileID: 1656463181}
+  followDuration: 0.5
+  followEase: 6
 --- !u!1 &404944163
 GameObject:
   m_ObjectHideFlags: 0
