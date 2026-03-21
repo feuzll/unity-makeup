@@ -4,15 +4,15 @@ using abc.Game.Unity;
 
 namespace abc.Game.Model
 {
-    public interface IHand
+    public partial interface IHand
     {
-        protected void TryMoveTo(float x, float y);
+        /*protected void TryMoveTo(float x, float y);
 
         protected ITool? Tool { get; set; }
 
-        protected Action ActiveToolChanged { get; }
+        protected Action ActiveToolChanged { get; }*/
 
-        protected void TryGrab(ITool tool)
+        /*protected void TryGrab(ITool tool)
         {
             if (Tool is not null) return;
             TryMoveTo(tool.Position.x, tool.Position.y);
@@ -39,18 +39,7 @@ namespace abc.Game.Model
                 if (Target.Tool is not null)
                     Target.TryMoveTo(x, y);
             }
-        }
-
-        public interface ITool
-        {
-            public (float x, float y) RestPosition { get; }
-            public (float x, float y) Position { get; }
-            public void PerformJob() {}
-            public void BindTo(IHand hand);
-            public void BindTo(IContainer container);
-            public void Unbind() {}
-            
-            public interface IContainer { }
-        }
+        }*/
+        
     }
 }

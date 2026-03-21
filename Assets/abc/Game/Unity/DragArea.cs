@@ -1,3 +1,4 @@
+using abc.Game.Contexts;
 using abc.Game.Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,21 +7,15 @@ using UnityEngine.Serialization;
 namespace abc.Game.Unity
 {
         public class DragArea : MonoBehaviour, 
-            IDragHandler, IHand.IDragger, IPointerDownHandler
+            IDragHandler, /*IHand.IDragger,*/ IPointerDownHandler
         {
-            [SerializeField] private Hand target;
-            IHand IHand.IDragger.Target => target;
+            [SerializeField] private Hand _hand;
 
-            public void OnDrag(PointerEventData eventData)
-            {
-                Debug.Log(eventData.position);
-                (this as IHand.IDragger).TryDragTo(eventData.position.x, eventData.position.y);
-            }
+            private void Fire(PointerEventData e) =>
+                new MoveHandContext(_hand.Data, e.position.x, e.position.y).Execute();
 
-            public void OnPointerDown(PointerEventData eventData)
-            {
-                (this as IHand.IDragger).TryDragTo(eventData.position.x, eventData.position.y);
-            }
+            public void OnDrag(PointerEventData e)        => Fire(e);
+            public void OnPointerDown(PointerEventData e) => Fire(e);
         }
     
 }
