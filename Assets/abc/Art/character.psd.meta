@@ -1,0 +1,1161 @@
+fileFormatVersion: 2
+guid: c026e825393d72f4794a69afbe7108ef
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 256
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: d8e8eb8a40a8e79429a481972e0920af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: hair
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 4
+      width: 713
+      height: 1429
+    spriteID: e9e84a5d4c6825942ac1b0b5f1d53edc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 4}
+    spritePosition: {x: 668, y: 2357}
+  - name: acne
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3440
+      width: 375
+      height: 561
+    spriteID: 064943c5d1041984ea1c1583408b1845
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3440}
+    spritePosition: {x: 850, y: 3134}
+  - name: blush_color_09
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 387
+      y: 3440
+      width: 385
+      height: 201
+    spriteID: f7aa5a8c7889c124e93cdea0c26807dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 387, y: 3440}
+    spritePosition: {x: 808, y: 3256}
+  - name: blush_color_08
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 780
+      y: 3440
+      width: 321
+      height: 201
+    spriteID: 245edfc1d45c11148847722fd60c377d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 780, y: 3440}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_07
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 387
+      y: 3649
+      width: 321
+      height: 201
+    spriteID: 63de9fe62cb410949aec8a7667b43a55
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 387, y: 3649}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_06
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 716
+      y: 3649
+      width: 321
+      height: 201
+    spriteID: a7898dfec011d0148b3aab428960dd0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 716, y: 3649}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_05
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1045
+      y: 3649
+      width: 321
+      height: 201
+    spriteID: 404f0d9a96e41dd4e8ce31d6c9fe0952
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1045, y: 3649}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_04
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 387
+      y: 3858
+      width: 321
+      height: 201
+    spriteID: 5761349f6eabe274ca811c5411f6259c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 387, y: 3858}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 716
+      y: 3858
+      width: 321
+      height: 201
+    spriteID: 252e511e674315b49b5eee37d1346972
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 716, y: 3858}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1045
+      y: 3858
+      width: 321
+      height: 201
+    spriteID: f5747626098defa498a328d5059ee4f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1045, y: 3858}
+    spritePosition: {x: 839, y: 3256}
+  - name: blush_color_01
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1441
+      width: 321
+      height: 201
+    spriteID: 67a9948374752b140a1ef628e7f967ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1441}
+    spritePosition: {x: 839, y: 3256}
+  - name: brows_blonde
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2095
+      width: 299
+      height: 43
+    spriteID: 60ad99260b16d8d41aaeba2a43a6ffde
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2095}
+    spritePosition: {x: 849, y: 3461}
+  - name: eyeshadow_color_09
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4009
+      width: 249
+      height: 58
+    spriteID: 097dcaa4d242b834998c2461376567b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4009}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_08
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1109
+      y: 3440
+      width: 249
+      height: 58
+    spriteID: ae497b782ca299f49aded354e35f7624
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1109, y: 3440}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_07
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1109
+      y: 3506
+      width: 249
+      height: 58
+    spriteID: c1fd2c66f7156af4c9a5d6ed193de3ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1109, y: 3506}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_06
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1109
+      y: 3572
+      width: 249
+      height: 58
+    spriteID: 126c05eb28abde040a42c851a962f68d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1109, y: 3572}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_05
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1765
+      width: 249
+      height: 58
+    spriteID: c244773a7a7fe044695622ed23b6a3fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1765}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_04
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1831
+      width: 249
+      height: 58
+    spriteID: 9326ac6289bf4c94ca5114ff1287bec0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1831}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1897
+      width: 249
+      height: 58
+    spriteID: 7690d8ae5bb8833429bb10bad1b0da3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1897}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1963
+      width: 249
+      height: 58
+    spriteID: d85cd5475230c734b99402b259948d22
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1963}
+    spritePosition: {x: 873, y: 3411}
+  - name: eyeshadow_color_01
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2029
+      width: 249
+      height: 58
+    spriteID: 82fd0704ddc54f44a95e9bb208f21db8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2029}
+    spritePosition: {x: 873, y: 3411}
+  - name: eye_blue
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 1650
+      width: 309
+      height: 107
+    spriteID: 53f3d24c2a9ef524a8ff7e31ef9c1014
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 1650}
+    spritePosition: {x: 843, y: 3383}
+  - name: lipstick_06
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2146
+      width: 90
+      height: 55
+    spriteID: 76607ea15a625d74c8b5dc0f060eca39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2146}
+    spritePosition: {x: 953, y: 3257}
+  - name: lipstick_05
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2209
+      width: 90
+      height: 55
+    spriteID: 108d04f8ae388a84cbbf5f968428acd2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2209}
+    spritePosition: {x: 953, y: 3257}
+  - name: lipstick_04
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2272
+      width: 90
+      height: 55
+    spriteID: bf4d6844e08ea904abb7e861e06f730c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2272}
+    spritePosition: {x: 953, y: 3257}
+  - name: lipstick_03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2335
+      width: 90
+      height: 55
+    spriteID: c24e9dacd69bf6b4ca70a40a6d696bdc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2335}
+    spritePosition: {x: 953, y: 3257}
+  - name: lipstick_02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2398
+      width: 90
+      height: 55
+    spriteID: 2c533be6a59edfc40bf9444ff9ceedfd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2398}
+    spritePosition: {x: 953, y: 3257}
+  - name: lipstick_01
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 2461
+      width: 90
+      height: 55
+    spriteID: 807afcd333279b2439dda85623b2e8f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 2461}
+    spritePosition: {x: 953, y: 3257}
+  - name: mouth
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 261
+      y: 4009
+      width: 90
+      height: 61
+    spriteID: d4a09c23e18ea804f8525f5722835841
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 261, y: 4009}
+    spritePosition: {x: 953, y: 3257}
+  - name: dress
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2098
+      y: 4
+      width: 742
+      height: 1212
+    spriteID: 1441a5616d8df5941a1f6a83a3f8ed75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2098, y: 4}
+    spritePosition: {x: 621, y: 1916}
+  - name: body_white
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1365
+      height: 3428
+    spriteID: a267874ab0b180d4a8ecf93565d3e842
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 315, y: 260}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 1
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: hair
+    spriteName: hair
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e9e84a5d4c6825942ac1b0b5f1d53edc
+    layerID: 0
+    mosaicPosition: {x: 1377, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: acne
+    spriteName: acne
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 064943c5d1041984ea1c1583408b1845
+    layerID: 1393374169
+    mosaicPosition: {x: 4, y: 3440}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: blush_color_09
+    spriteName: blush_color_09
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f7aa5a8c7889c124e93cdea0c26807dd
+    layerID: 1712383142
+    mosaicPosition: {x: 387, y: 3440}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_08
+    spriteName: blush_color_08
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 245edfc1d45c11148847722fd60c377d
+    layerID: 146299201
+    mosaicPosition: {x: 780, y: 3440}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_07
+    spriteName: blush_color_07
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 63de9fe62cb410949aec8a7667b43a55
+    layerID: 193353368
+    mosaicPosition: {x: 387, y: 3649}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_06
+    spriteName: blush_color_06
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a7898dfec011d0148b3aab428960dd0d
+    layerID: -1372730573
+    mosaicPosition: {x: 716, y: 3649}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_05
+    spriteName: blush_color_05
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 404f0d9a96e41dd4e8ce31d6c9fe0952
+    layerID: -969446046
+    mosaicPosition: {x: 1045, y: 3649}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_04
+    spriteName: blush_color_04
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5761349f6eabe274ca811c5411f6259c
+    layerID: 1759437309
+    mosaicPosition: {x: 387, y: 3858}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_03
+    spriteName: blush_color_03
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 252e511e674315b49b5eee37d1346972
+    layerID: -1776015100
+    mosaicPosition: {x: 716, y: 3858}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_02
+    spriteName: blush_color_02
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f5747626098defa498a328d5059ee4f4
+    layerID: 952868255
+    mosaicPosition: {x: 1045, y: 3858}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: blush_color_01
+    spriteName: blush_color_01
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 67a9948374752b140a1ef628e7f967ed
+    layerID: 1356152782
+    mosaicPosition: {x: 1377, y: 1441}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: brows_blonde
+    spriteName: brows_blonde
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 60ad99260b16d8d41aaeba2a43a6ffde
+    layerID: -1704711574
+    mosaicPosition: {x: 1377, y: 2095}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: eyeshadow_color_09
+    spriteName: eyeshadow_color_09
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 097dcaa4d242b834998c2461376567b3
+    layerID: -920372405
+    mosaicPosition: {x: 4, y: 4009}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_08
+    spriteName: eyeshadow_color_08
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ae497b782ca299f49aded354e35f7624
+    layerID: 645711536
+    mosaicPosition: {x: 1109, y: 3440}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_07
+    spriteName: eyeshadow_color_07
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c1fd2c66f7156af4c9a5d6ed193de3ca
+    layerID: 242427009
+    mosaicPosition: {x: 1109, y: 3506}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_06
+    spriteName: eyeshadow_color_06
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 126c05eb28abde040a42c851a962f68d
+    layerID: 1808510950
+    mosaicPosition: {x: 1109, y: 3572}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_05
+    spriteName: eyeshadow_color_05
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c244773a7a7fe044695622ed23b6a3fc
+    layerID: 1405226423
+    mosaicPosition: {x: 1377, y: 1765}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_04
+    spriteName: eyeshadow_color_04
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9326ac6289bf4c94ca5114ff1287bec0
+    layerID: -1323656932
+    mosaicPosition: {x: 1377, y: 1831}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_03
+    spriteName: eyeshadow_color_03
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7690d8ae5bb8833429bb10bad1b0da3e
+    layerID: -1726941459
+    mosaicPosition: {x: 1377, y: 1897}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_02
+    spriteName: eyeshadow_color_02
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d85cd5475230c734b99402b259948d22
+    layerID: -160857518
+    mosaicPosition: {x: 1377, y: 1963}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eyeshadow_color_01
+    spriteName: eyeshadow_color_01
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 82fd0704ddc54f44a95e9bb208f21db8
+    layerID: -564142045
+    mosaicPosition: {x: 1377, y: 2029}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: eye_blue
+    spriteName: eye_blue
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 53f3d24c2a9ef524a8ff7e31ef9c1014
+    layerID: -1153649660
+    mosaicPosition: {x: 1377, y: 1650}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lipstick_06
+    spriteName: lipstick_06
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 76607ea15a625d74c8b5dc0f060eca39
+    layerID: -819727640
+    mosaicPosition: {x: 1377, y: 2146}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: lipstick_05
+    spriteName: lipstick_05
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 108d04f8ae388a84cbbf5f968428acd2
+    layerID: -819727643
+    mosaicPosition: {x: 1377, y: 2209}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: lipstick_04
+    spriteName: lipstick_04
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bf4d6844e08ea904abb7e861e06f730c
+    layerID: -819727642
+    mosaicPosition: {x: 1377, y: 2272}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: lipstick_03
+    spriteName: lipstick_03
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c24e9dacd69bf6b4ca70a40a6d696bdc
+    layerID: -819727645
+    mosaicPosition: {x: 1377, y: 2335}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: lipstick_02
+    spriteName: lipstick_02
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2c533be6a59edfc40bf9444ff9ceedfd
+    layerID: -819727644
+    mosaicPosition: {x: 1377, y: 2398}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: lipstick_01
+    spriteName: lipstick_01
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 807afcd333279b2439dda85623b2e8f5
+    layerID: -819727647
+    mosaicPosition: {x: 1377, y: 2461}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: mouth
+    spriteName: mouth
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d4a09c23e18ea804f8525f5722835841
+    layerID: -1327163637
+    mosaicPosition: {x: 261, y: 4009}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dress
+    spriteName: dress
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1441a5616d8df5941a1f6a83a3f8ed75
+    layerID: -1107714325
+    mosaicPosition: {x: 2098, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: body_white
+    spriteName: body_white
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a267874ab0b180d4a8ecf93565d3e842
+    layerID: 1459104232
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
