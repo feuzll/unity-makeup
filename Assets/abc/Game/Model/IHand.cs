@@ -1,13 +1,56 @@
+#nullable enable
+using System;
+using abc.Game.Unity;
+
 namespace abc.Game.Model
 {
     public interface IHand
     {
-        protected void RequestMoveTo(float x, float y);
+        protected void TryMoveTo(float x, float y);
 
-        public interface IUser
+        protected ITool? Tool { get; set; }
+
+        protected Action ActiveToolChanged { get; }
+
+        protected void TryGrab(ITool tool)
+        {
+            if (Tool is not null) return;
+            TryMoveTo(tool.Position.x, tool.Position.y);
+            tool.BindTo(this);
+            Tool = tool;
+            ActiveToolChanged?.Invoke();
+        }
+
+        protected void TryDrop(ITool tool);
+        
+        protected void TryUseActiveTool()
+        {
+            if (Tool is null) return;
+            Tool.PerformJob();
+            ActiveToolChanged?.Invoke();
+        }
+
+        public interface IDragger
         {
             protected IHand Target { get; }
-            public void TryMoveTo(float x, float y) => Target.RequestMoveTo(x, y);
+
+            public void TryDragTo(float x, float y)
+            {
+                if (Target.Tool is not null)
+                    Target.TryMoveTo(x, y);
+            }
+        }
+
+        public interface ITool
+        {
+            public (float x, float y) RestPosition { get; }
+            public (float x, float y) Position { get; }
+            public void PerformJob() {}
+            public void BindTo(IHand hand);
+            public void BindTo(IContainer container);
+            public void Unbind() {}
+            
+            public interface IContainer { }
         }
     }
 }
