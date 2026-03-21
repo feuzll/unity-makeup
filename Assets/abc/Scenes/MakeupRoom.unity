@@ -1093,8 +1093,9 @@ GameObject:
   - component: {fileID: 331070167}
   - component: {fileID: 331070169}
   - component: {fileID: 331070168}
+  - component: {fileID: 331070170}
   m_Layer: 5
-  m_Name: Iamge
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,13 +1113,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1313126526}
+  m_Father: {fileID: 763392794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.081528, y: -178.99994}
+  m_AnchoredPosition: {x: 152, y: -568}
   m_SizeDelta: {x: 156.56, y: 400.4004}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.81196654, y: 0.9456121}
 --- !u!114 &331070168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1158,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331070166}
   m_CullTransparentMesh: 1
+--- !u!114 &331070170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331070166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f810694f04241bae37685e18fbad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Hand
 --- !u!1 &404944163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,6 +1865,7 @@ GameObject:
   - component: {fileID: 763392794}
   - component: {fileID: 763392796}
   - component: {fileID: 763392795}
+  - component: {fileID: 763392797}
   m_Layer: 5
   m_Name: HandDragArea
   m_TagString: Untagged
@@ -1870,7 +1884,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 331070167}
   m_Father: {fileID: 1656463182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1916,6 +1931,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763392793}
   m_CullTransparentMesh: 1
+--- !u!114 &763392797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763392793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b3e150fffa4fa090a5c0a12c2cc89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.DragArea
+  target: {fileID: 331070170}
 --- !u!1 &810263172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,42 +2914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.SelfRepeatingBookProAdapter
   book: {fileID: 1261152040}
   pageFlipTime: 1
---- !u!1 &1313126525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1313126526}
-  m_Layer: 5
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1313126526
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313126525}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 331070167}
-  m_Father: {fileID: 1656463182}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236, y: -560}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1320824821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,7 +4430,6 @@ RectTransform:
   - {fileID: 1441164157}
   - {fileID: 1144140982}
   - {fileID: 1732491989}
-  - {fileID: 1313126526}
   - {fileID: 763392794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

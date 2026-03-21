@@ -1,22 +1,21 @@
 using abc.Game.Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace abc.Game.Unity
 {
-    public partial class Hand
-    {
         public class DragArea : MonoBehaviour, IDragHandler, IHand.IUser
         {
-            [SerializeField] private Hand _target;
-            IHand IHand.IUser.Target => _target;
+            [SerializeField] private Hand target;
+            IHand IHand.IUser.Target => target;
 
             public void OnDrag(PointerEventData eventData)
             {
+                Debug.Log(eventData.position);
                 (this as IHand.IUser).TryMoveTo(eventData.position.x, eventData.position.y);
             }
 
         }
-    }
     
 }
