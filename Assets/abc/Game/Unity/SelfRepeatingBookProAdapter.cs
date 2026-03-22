@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace abc.Game.Unity
@@ -9,7 +10,12 @@ namespace abc.Game.Unity
         [SerializeField] private float pageFlipTime = 1;
         
         private bool _isPageFlipping = false;
-        
+
+        private void Start()
+        {
+            
+        }
+
         public void FlipRightPage()
         {
             if (_isPageFlipping) return;

@@ -25,6 +25,9 @@ namespace abc.Game.Unity
         [SerializeField] private float _shakeDuration       = 0.4f;
         [SerializeField] private float _shakeStrength       = 18f;
         
+        [Header("Grabbing")]
+        [SerializeField] private Vector2 _gripOffset = new Vector2(0, -20f);
+        
         public Game.Model.Jar Data { get; } = new();
 
         private RectTransform _rectTransform;
@@ -61,15 +64,17 @@ namespace abc.Game.Unity
             if (_hand.Data.HeldTool is not null) return;
             
             if (!UISpaceUtil.RectWorldToHandLocal(
-                    (RectTransform)transform, _hand, _canvas, out var jarLocalPos)) return;
+                    (RectTransform)transform, _hand, _canvas, out var jarHandLocal)) return;
 
-            var readyPosition = Vector2.Lerp(_hand.RestPosition, jarLocalPos, 0.5f);
+            // compensate so jar lands at grip offset naturally after reparent
+            var pickupTarget  = jarHandLocal - _gripOffset;
+            var readyPosition = Vector2.Lerp(_hand.RestPosition, pickupTarget, 0.5f);
             
             // Disable drag during the scripted sequence
             _dragArea.enabled = false;
             
             // 1. Hand tweens to jar
-            _hand.TweenToAnchored(jarLocalPos, _pickupTweenDuration)
+            _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
                 .OnComplete(() =>
                 {
                     // 2. State: jar is now held
@@ -87,12 +92,10 @@ namespace abc.Game.Unity
             if (Data.State == Game.Model.Jar.JarState.Held)
             {
                 _rectTransform.SetParent(_hand.transform, worldPositionStays: true);
-                //_rectTransform.anchoredPosition = new Vector2(0, -20f); // grip offset
                 Image.raycastTarget = false;
             }
             else
             {
-                // Re-parent to original shelf parent (store reference if needed)
                 _rectTransform.SetParent(_shelfParent, worldPositionStays: true);
                 Image.raycastTarget = true;
             }
@@ -129,10 +132,13 @@ namespace abc.Game.Unity
 
                             if (!UISpaceUtil.WorldToHandLocal(
                                     _shelfWorldPosition, _hand, _canvas, out var shelfHandLocal)) return;
+                            
+                            // compensate grip offset so jar lands exactly on shelf after reparent
+                            var returnTarget = shelfHandLocal - _gripOffset;
 
                             // 4. Hand carries jar back to shelf position,
                             //    then jar detaches and hand returns to rest
-                            _hand.TweenToAnchored(shelfHandLocal, _returnCreamDuration)
+                            _hand.TweenToAnchored(returnTarget, _returnCreamDuration)
                                 .OnComplete(() =>
                                 {
                                     // jar drops here — after hand arrives at shelf
