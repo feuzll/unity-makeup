@@ -43,7 +43,7 @@ namespace abc.Game.Unity
         private void GuardPolarFlips()
         {
             if (book.CurrentPaper == 1)
-                book.CurrentPaper = 3;
+                book.CurrentPaper = book.papers.Length - 2;
             else if (book.CurrentPaper == book.papers.Length - 1)
                 book.CurrentPaper = 2;
                 

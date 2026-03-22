@@ -82,7 +82,10 @@ namespace abc.Game.Unity
         private void OnStateChanged()
         {
             if (Data.State == Model.Lipstick.LipstickState.Held)
+            {
                 _image.raycastTarget = false;
+                _canvas.overrideSorting = true;
+            }
             else
             {
                 _canvas.overrideSorting = false;
