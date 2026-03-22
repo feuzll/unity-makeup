@@ -5057,7 +5057,7 @@ MonoBehaviour:
   _dragArea: {fileID: 763392797}
   _character: {fileID: 1359029891}
   _faceZone: {fileID: 624077883}
-  _pickupTweenDuration: 0.35
+  _pickupTweenDuration: 2
   _applyTweenDuration: 3
   _shakeDuration: 6
   _shakeStrength: 40

@@ -2,10 +2,12 @@ using abc.Game.Contexts;
 using abc.Game.Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace abc.Game.Unity
 {
     [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Image))]
     public class Jar : MonoBehaviour, IPointerClickHandler
     {
         [Header("References")]
@@ -25,6 +27,7 @@ namespace abc.Game.Unity
         public Game.Model.Jar Data { get; } = new();
 
         private RectTransform _rectTransform;
+        private Image Image => GetComponent<Image>();
         private Vector2       _shelfAnchoredPosition; // recorded on Start, never changes
 
         private void Awake()
@@ -50,13 +53,19 @@ namespace abc.Game.Unity
             if (Data.State != Game.Model.Jar.JarState.Shelved) return;
             if (_hand.Data.HeldTool is not null) return;
 
-            var readyPosition = Vector2.Lerp(
-                _hand.RestPosition,
-                _shelfAnchoredPosition,
-                0.5f);
+            var cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                ? null : _canvas.worldCamera;
+
+            // jar's world center → screen → hand container local
+            var jarCenterWorld = _rectTransform.TransformPoint(_rectTransform.rect.center);
+            var jarScreenPos   = RectTransformUtility.WorldToScreenPoint(cam, jarCenterWorld);
+
+            if (!_hand.ScreenToLocal(jarScreenPos, out var jarLocalPos)) return;
+
+            var readyPosition = Vector2.Lerp(_hand.RestPosition, jarLocalPos, 0.5f);
 
             // 1. Hand tweens to jar
-            _hand.TweenToAnchored(_shelfAnchoredPosition, _pickupTweenDuration)
+            _hand.TweenToAnchored(jarLocalPos, _pickupTweenDuration)
                 .OnComplete(() =>
                 {
                     // 2. State: jar is now held
@@ -74,11 +83,13 @@ namespace abc.Game.Unity
             {
                 _rectTransform.SetParent(_hand.transform, worldPositionStays: true);
                 _rectTransform.anchoredPosition = new Vector2(0, -20f); // grip offset
+                Image.raycastTarget = false;
             }
             else
             {
                 // Re-parent to original shelf parent (store reference if needed)
                 _rectTransform.SetParent(transform.parent, worldPositionStays: true);
+                Image.raycastTarget = true;
             }
         }
 
