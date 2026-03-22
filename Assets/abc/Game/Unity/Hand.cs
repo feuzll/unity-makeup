@@ -13,27 +13,23 @@ namespace abc.Game.Unity
         [SerializeField] private Canvas _canvas;
         [SerializeField] private float  _followDuration = 0.12f;
         [SerializeField] private Ease   _followEase     = Ease.OutQuad;
-
-        [Header("Rest")]
-        [SerializeField] private Vector2 _restAnchoredPosition;
         [SerializeField] private float   _returnToRestDuration = 0.3f;
         
         public Model.Hand Data { get; } = new();
 
         private RectTransform _rectTransform;
+        private Vector2 _restAnchoredPosition;
         private PrimeTween.Tween  _moveTween;
 
         private void Awake()
         {
             _rectTransform       = GetComponent<RectTransform>();
             //_rectTransform.pivot = new Vector2(0.5f, 1f);
+            _restAnchoredPosition =  _rectTransform.anchoredPosition;
 
             // React to model changes — all rendering lives here
             Data.PositionChanged += OnPositionChanged;
         }
-
-        private void Start() =>
-            _rectTransform.anchoredPosition = _restAnchoredPosition;
         
         private void OnDestroy() =>
             Data.PositionChanged -= OnPositionChanged;

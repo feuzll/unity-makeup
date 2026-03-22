@@ -39,28 +39,24 @@ namespace abc.Game.Unity
         private void Start()
         {
             _shelfAnchoredPosition = _rectTransform.anchoredPosition;
-            _dragArea.DragEnded   += OnDragEnded;
+            _dragArea.DragEnded   += TryApplyCream;
+            _faceZone.ClickedOnFace += TryApplyCream;
         }
 
         private void OnDestroy()
         {
             Data.StateChanged     -= OnStateChanged;
-            _dragArea.DragEnded -= OnDragEnded;
+            _dragArea.DragEnded -= TryApplyCream;
+            _faceZone.ClickedOnFace += TryApplyCream;
         }
         
         public void OnPointerClick(PointerEventData _)
         {
             if (Data.State != Game.Model.Jar.JarState.Shelved) return;
             if (_hand.Data.HeldTool is not null) return;
-
-            var cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
-                ? null : _canvas.worldCamera;
-
-            // jar's world center → screen → hand container local
-            var jarCenterWorld = _rectTransform.TransformPoint(_rectTransform.rect.center);
-            var jarScreenPos   = RectTransformUtility.WorldToScreenPoint(cam, jarCenterWorld);
-
-            if (!_hand.ScreenToLocal(jarScreenPos, out var jarLocalPos)) return;
+            
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    (RectTransform)transform, _hand, _canvas, out var jarLocalPos)) return;
 
             var readyPosition = Vector2.Lerp(_hand.RestPosition, jarLocalPos, 0.5f);
 
@@ -95,7 +91,7 @@ namespace abc.Game.Unity
 
         // ── Application ───────────────────────────────────────────────────────
         
-        private void OnDragEnded()
+        private void TryApplyCream()
         {
             if (Data.State != Game.Model.Jar.JarState.Held) return;
             if (!_faceZone.IsHandOver) return;
@@ -103,12 +99,8 @@ namespace abc.Game.Unity
             // Disable drag during the scripted sequence
             _dragArea.enabled = false;
 
-            var cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
-                ? null : _canvas.worldCamera;
-
-            var faceScreenPos = RectTransformUtility.WorldToScreenPoint(cam, _faceZone.transform.position);
-
-            if (!_hand.ScreenToLocal(faceScreenPos, out var faceLocalPos)) return;
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    (RectTransform)_faceZone.transform, _hand, _canvas, out var faceLocalPos)) return;
 
             // 1. Hand tweens to face center
             _hand.TweenToAnchored(faceLocalPos, _applyTweenDuration)
@@ -124,9 +116,11 @@ namespace abc.Game.Unity
                             new ApplyFaceCreamContext(
                                 _hand.Data, Data, _character.Data).Execute();
 
+                            if (!UISpaceUtil.RectWorldToHandLocal(
+                                    _rectTransform, _hand, _canvas, out var jarReturnPos)) return;
                             // 4. Hand carries jar back to shelf position,
                             //    then jar detaches and hand returns to rest
-                            _hand.TweenToAnchored(_shelfAnchoredPosition, _applyTweenDuration)
+                            _hand.TweenToAnchored(jarReturnPos, _applyTweenDuration)
                                 .OnComplete(() =>
                                 {
                                     // jar is already reparented by OnStateChanged
