@@ -64,7 +64,10 @@ namespace abc.Game.Unity
                     (RectTransform)transform, _hand, _canvas, out var jarLocalPos)) return;
 
             var readyPosition = Vector2.Lerp(_hand.RestPosition, jarLocalPos, 0.5f);
-
+            
+            // Disable drag during the scripted sequence
+            _dragArea.enabled = false;
+            
             // 1. Hand tweens to jar
             _hand.TweenToAnchored(jarLocalPos, _pickupTweenDuration)
                 .OnComplete(() =>
@@ -73,7 +76,8 @@ namespace abc.Game.Unity
                     new PickUpJarContext(_hand.Data, Data).Execute();
 
                     // 3. Hand (with jar) moves to ready position
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration);
+                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration).OnComplete(()
+                        => _dragArea.enabled = true);
                 });
         }
 
