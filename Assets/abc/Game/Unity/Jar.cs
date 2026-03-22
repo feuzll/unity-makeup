@@ -13,8 +13,9 @@ namespace abc.Game.Unity
         [SerializeField] private Hand       _hand;
         [SerializeField] private DragArea   _dragArea;
         [SerializeField] private Character  _character;
-        [SerializeField] private RectTransform       _faceZone;
-
+        [SerializeField] private FaceZone   _faceZone;
+        
+        
         [Header("Timing")]
         [SerializeField] private float _pickupTweenDuration = 0.35f;
         [SerializeField] private float _applyTweenDuration  = 0.3f;
@@ -41,7 +42,7 @@ namespace abc.Game.Unity
         private void OnDestroy()
         {
             Data.StateChanged     -= OnStateChanged;
-            _dragArea.DragEnded   -= OnDragEnded;
+            _dragArea.DragEnded -= OnDragEnded;
         }
         
         public void OnPointerClick(PointerEventData _)
@@ -86,12 +87,12 @@ namespace abc.Game.Unity
         private void OnDragEnded()
         {
             if (Data.State != Game.Model.Jar.JarState.Held) return;
-            if (!IsHandOverFace()) return;
-
+            if (!_faceZone.IsHandOver) return;
+            
             // Disable drag during the scripted sequence
             _dragArea.enabled = false;
 
-            var faceCenter = _faceZone.anchoredPosition;
+            var faceCenter = _faceZone.transform.position;
 
             // 1. Hand tweens to face center
             _hand.TweenToAnchored(faceCenter, _applyTweenDuration)
@@ -120,18 +121,6 @@ namespace abc.Game.Unity
                                 });
                         });
                 });
-        }
-
-        private bool IsHandOverFace()
-        {
-            var handWorldPos = ((RectTransform)_hand.transform).position;
-            var screenPos    = RectTransformUtility.WorldToScreenPoint(
-                _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera,
-                handWorldPos);
-
-            return RectTransformUtility.RectangleContainsScreenPoint(
-                _faceZone, screenPos,
-                _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera);
         }
     }
 }

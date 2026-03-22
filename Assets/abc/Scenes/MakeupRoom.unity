@@ -1722,6 +1722,7 @@ GameObject:
   - component: {fileID: 624077880}
   - component: {fileID: 624077882}
   - component: {fileID: 624077881}
+  - component: {fileID: 624077883}
   m_Layer: 5
   m_Name: FaceArea
   m_TagString: Untagged
@@ -1786,6 +1787,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624077879}
   m_CullTransparentMesh: 1
+--- !u!114 &624077883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624077879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7512c16b2d954825816b1935a51875e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.FaceZone
 --- !u!1 &664724960
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5056,7 @@ MonoBehaviour:
   _hand: {fileID: 331070170}
   _dragArea: {fileID: 763392797}
   _character: {fileID: 1359029891}
-  _faceZone: {fileID: 624077880}
+  _faceZone: {fileID: 624077883}
   _pickupTweenDuration: 0.35
   _applyTweenDuration: 0.3
   _shakeDuration: 0.4
