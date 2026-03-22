@@ -4,7 +4,7 @@ namespace abc.Game.Model
     {
         public interface ITool
         {
-            public (float x, float y) RestPosition { get; }
+            /*public (float x, float y) RestPosition { get; }
             public (float x, float y) Position { get; }
 
             public void PerformJob();
@@ -18,7 +18,7 @@ namespace abc.Game.Model
 
             public interface IContainer
             {
-            }
+            }*/
         }
     }
 }
