@@ -31,6 +31,7 @@ namespace abc.Game.Unity
                 l.Clicked += OnLipstickClicked;
 
             _dragArea.DragEnded += OnDragEnded;
+            _hand.Data.HeldToolChanged += OnHeldToolChanged;
         }
 
         private void OnDestroy()
@@ -39,6 +40,14 @@ namespace abc.Game.Unity
                 l.Clicked -= OnLipstickClicked;
 
             _dragArea.DragEnded -= OnDragEnded;
+            _hand.Data.HeldToolChanged -= OnHeldToolChanged;
+        }
+        
+        private void OnHeldToolChanged()
+        {
+            var isHolding = _hand.Data.HeldTool is not null;
+            foreach (var l in _lipsticks)
+                l.SetInteractable(!isHolding);
         }
 
         // ── Pickup ────────────────────────────────────────────────────────────
@@ -92,7 +101,7 @@ namespace abc.Game.Unity
                         {
                             new ReturnLipstickContext(_hand.Data, lipstick.Data).Execute();
                             lipstick.Rect.SetParent(
-                                lipstick.transform.parent, worldPositionStays: true);
+                                lipstick.ShelfParent, worldPositionStays: true);
                             _held = null;
 
                             _hand.TweenToRest()

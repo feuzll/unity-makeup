@@ -17,6 +17,7 @@ namespace abc.Game.Unity
         public Model.Lipstick   Data      { get; } = new();
         public RectTransform  Rect      { get; private set; }
         public Vector3        ShelfWorldPosition { get; private set; }
+        public Transform ShelfParent => _shelfParent;
 
         private Transform _shelfParent;
         private Image     _image;
@@ -88,5 +89,8 @@ namespace abc.Game.Unity
                 _image.raycastTarget    = true;
             }
         }
+        
+        public void SetInteractable(bool interactable) =>
+            _image.raycastTarget = interactable && Data.State == Model.Lipstick.LipstickState.Shelved;
     }
 }
