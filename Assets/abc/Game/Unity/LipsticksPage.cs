@@ -31,7 +31,6 @@ namespace abc.Game.Unity
                 l.Clicked += OnLipstickClicked;
 
             _dragArea.DragEnded += OnDragEnded;
-            _hand.Data.HeldToolChanged += OnHeldToolChanged;
         }
 
         private void OnDestroy()
@@ -40,21 +39,13 @@ namespace abc.Game.Unity
                 l.Clicked -= OnLipstickClicked;
 
             _dragArea.DragEnded -= OnDragEnded;
-            _hand.Data.HeldToolChanged -= OnHeldToolChanged;
-        }
-        
-        private void OnHeldToolChanged()
-        {
-            var isHolding = _hand.Data.HeldTool is not null;
-            foreach (var l in _lipsticks)
-                l.SetInteractable(!isHolding);
         }
 
         // ── Pickup ────────────────────────────────────────────────────────────
 
         private void OnLipstickClicked(Lipstick lipstick)
         {
-            if (_hand.Data.HeldTool is not null) return;
+            if (!_hand.Data.CanGrab) return;
 
             if (!UISpaceUtil.RectWorldToHandLocal(
                     lipstick.Rect, _hand, _canvas, out var lipstickHandLocal)) return;
@@ -80,6 +71,8 @@ namespace abc.Game.Unity
             if (_held is null) return;
             if (!_faceZone.IsHandOver) return;
 
+            new SetHandBusyContext(_hand.Data, true).Execute();
+            
             var lipstick = _held;
             _dragArea.enabled = false;
 
@@ -105,7 +98,10 @@ namespace abc.Game.Unity
                             _held = null;
 
                             _hand.TweenToRest()
-                                .OnComplete(() => _dragArea.enabled = true);
+                                .OnComplete(() =>
+                                {
+                                    new SetHandBusyContext(_hand.Data, false).Execute();
+                                });
                         });
                 });
         }

@@ -89,8 +89,5 @@ namespace abc.Game.Unity
                 _image.raycastTarget    = true;
             }
         }
-        
-        public void SetInteractable(bool interactable) =>
-            _image.raycastTarget = interactable && Data.State == Model.Lipstick.LipstickState.Shelved;
     }
 }

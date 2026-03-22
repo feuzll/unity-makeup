@@ -13,7 +13,6 @@ namespace abc.Game.Unity
         [Header("References")]
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Hand       _hand;
-        [SerializeField] private DragArea   _dragArea;
         [SerializeField] private Character  _character;
         [SerializeField] private FaceZone   _faceZone;
         
@@ -47,14 +46,12 @@ namespace abc.Game.Unity
             _shelfParent           = transform.parent; // store before any reparenting
             _shelfAnchoredPosition = _rectTransform.anchoredPosition;
             _shelfWorldPosition     = _rectTransform.position; // world space, no conversion needed
-            _dragArea.DragEnded   += TryApplyCream;
             _faceZone.ClickedOnFace += TryApplyCream;
         }
 
         private void OnDestroy()
         {
             Data.StateChanged     -= OnStateChanged;
-            _dragArea.DragEnded -= TryApplyCream;
             _faceZone.ClickedOnFace += TryApplyCream;
         }
         
@@ -70,8 +67,6 @@ namespace abc.Game.Unity
             var pickupTarget  = jarHandLocal - _gripOffset;
             var readyPosition = Vector2.Lerp(_hand.RestPosition, pickupTarget, 0.5f);
             
-            // Disable drag during the scripted sequence
-            _dragArea.enabled = false;
             
             // 1. Hand tweens to jar
             _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
@@ -81,8 +76,7 @@ namespace abc.Game.Unity
                     new PickUpJarContext(_hand.Data, Data).Execute();
 
                     // 3. Hand (with jar) moves to ready position
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration).OnComplete(()
-                        => _dragArea.enabled = true);
+                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration);
                 });
         }
 
@@ -107,10 +101,9 @@ namespace abc.Game.Unity
         {
             if (Data.State != Game.Model.Jar.JarState.Held) return;
             if (!_faceZone.IsHandOver) return;
-            
-            // Disable drag during the scripted sequence
-            _dragArea.enabled = false;
 
+            new SetHandBusyContext(_hand.Data, true).Execute();
+            
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)_faceZone.transform, _hand, _canvas, out var faceLocalPos)) return;
 
@@ -144,8 +137,8 @@ namespace abc.Game.Unity
                                     // jar drops here — after hand arrives at shelf
                                     new ReturnJarContext(_hand.Data, Data).Execute();
 
-                                    _hand.TweenToRest()
-                                        .OnComplete(() => _dragArea.enabled = true);
+                                    _hand.TweenToRest().OnComplete(() =>
+                                        new SetHandBusyContext(_hand.Data, false).Execute());
                                 });
                         });
                 });

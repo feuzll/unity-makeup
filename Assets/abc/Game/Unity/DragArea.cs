@@ -93,7 +93,11 @@ namespace abc.Game.Unity
             
             private void TryFireMove(Vector2 screenPoint)
             {
+                if (!_hand.Data.CanGrab) return; // busy = no dragging either
+                // wait - we want dragging to work when holding tool but not busy
+                // so gate should be: has tool AND not busy
                 if (_hand.Data.HeldTool is null) return;
+                if (_hand.Data.IsBusy) return; // expose as public property
                 new MoveHandContext(_hand.Data, screenPoint.x, screenPoint.y).Execute();
             }
 
