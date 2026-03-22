@@ -1958,6 +1958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7512c16b2d954825816b1935a51875e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.FaceZone
+  _hand: {fileID: 331070170}
+  _canvas: {fileID: 1656463181}
 --- !u!1 &664724960
 GameObject:
   m_ObjectHideFlags: 0

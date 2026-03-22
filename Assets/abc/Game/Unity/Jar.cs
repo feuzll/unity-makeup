@@ -13,6 +13,7 @@ namespace abc.Game.Unity
         [Header("References")]
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Hand       _hand;
+        [SerializeField] private DragArea _dragArea;
         [SerializeField] private Character  _character;
         [SerializeField] private FaceZone   _faceZone;
         
@@ -46,13 +47,28 @@ namespace abc.Game.Unity
             _shelfParent           = transform.parent; // store before any reparenting
             _shelfAnchoredPosition = _rectTransform.anchoredPosition;
             _shelfWorldPosition     = _rectTransform.position; // world space, no conversion needed
-            _faceZone.ClickedOnFace += TryApplyCream;
+            _dragArea.DragEnded      += OnDragEnded;
+            _faceZone.ClickedOnFace  += OnFaceClicked;
+        }
+        
+        private void OnDragEnded(Vector2 screenPos)
+        {
+            if (Data.State != Model.Jar.JarState.Held) return;
+            if (!_faceZone.ContainsScreenPoint(screenPos)) return;
+            StartApplySequence();
+        }
+
+        private void OnFaceClicked()
+        {
+            if (Data.State != Model.Jar.JarState.Held) return;
+            StartApplySequence();
         }
 
         private void OnDestroy()
         {
             Data.StateChanged     -= OnStateChanged;
-            _faceZone.ClickedOnFace += TryApplyCream;
+            _faceZone.ClickedOnFace += OnFaceClicked;
+            _dragArea.DragEnded      -= OnDragEnded;
         }
         
         public void OnPointerClick(PointerEventData _)
@@ -101,10 +117,10 @@ namespace abc.Game.Unity
 
         // ── Application ───────────────────────────────────────────────────────
         
-        private void TryApplyCream()
+        private void StartApplySequence()
         {
-            if (Data.State != Game.Model.Jar.JarState.Held) return;
-            if (!_faceZone.IsHandOver) return;
+            /*if (Data.State != Game.Model.Jar.JarState.Held) return;
+            if (!_faceZone.IsHandOver) return;*/
 
             new SetHandBusyContext(_hand.Data, true).Execute();
             

@@ -70,10 +70,10 @@ namespace abc.Game.Unity
 
         // ── Application ───────────────────────────────────────────────────────
 
-        private void OnDragEnded()
+        private void OnDragEnded(Vector2 screenPos)
         {
             if (_held is null) return;
-            if (!_faceZone.IsHandOver) return;
+            if (!_faceZone.ContainsScreenPoint(screenPos)) return;
 
             new SetHandBusyContext(_hand.Data, true).Execute();
             

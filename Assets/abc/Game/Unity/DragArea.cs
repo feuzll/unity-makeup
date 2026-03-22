@@ -17,7 +17,7 @@ namespace abc.Game.Unity
             [Tooltip("Pixels of movement before press is treated as drag, not a tap")]
             [SerializeField] private float _tapThreshold = 10f;
 
-            public event System.Action? DragEnded;
+            public event System.Action<Vector2>? DragEnded;
 
             private RectTransform _rectTransform;
             private bool          _isTracking;
@@ -56,7 +56,7 @@ namespace abc.Game.Unity
                     _isTracking = false;
 
                     if (Vector2.Distance(pos, _pressPosition) > _tapThreshold)
-                        DragEnded?.Invoke();
+                        DragEnded?.Invoke(pos);
                 }
             }
             
@@ -82,7 +82,7 @@ namespace abc.Game.Unity
                         _isTracking = false;
 
                         if (Vector2.Distance(touch.position, _pressPosition) > _tapThreshold)
-                            DragEnded?.Invoke();
+                            DragEnded?.Invoke(touch.position);
                         break;
 
                     case TouchPhase.Canceled:
