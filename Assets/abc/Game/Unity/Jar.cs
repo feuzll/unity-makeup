@@ -92,10 +92,15 @@ namespace abc.Game.Unity
             // Disable drag during the scripted sequence
             _dragArea.enabled = false;
 
-            var faceCenter = _faceZone.transform.position;
+            var cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                ? null : _canvas.worldCamera;
+
+            var faceScreenPos = RectTransformUtility.WorldToScreenPoint(cam, _faceZone.transform.position);
+
+            if (!_hand.ScreenToLocal(faceScreenPos, out var faceLocalPos)) return;
 
             // 1. Hand tweens to face center
-            _hand.TweenToAnchored(faceCenter, _applyTweenDuration)
+            _hand.TweenToAnchored(faceLocalPos, _applyTweenDuration)
                 .OnComplete(() =>
                 {
                     // 2. Shake

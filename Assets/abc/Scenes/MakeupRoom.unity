@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -5058,9 +5058,9 @@ MonoBehaviour:
   _character: {fileID: 1359029891}
   _faceZone: {fileID: 624077883}
   _pickupTweenDuration: 0.35
-  _applyTweenDuration: 0.3
-  _shakeDuration: 0.4
-  _shakeStrength: 18
+  _applyTweenDuration: 3
+  _shakeDuration: 6
+  _shakeStrength: 40
 --- !u!1 &1877266789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6968055815780996578, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
