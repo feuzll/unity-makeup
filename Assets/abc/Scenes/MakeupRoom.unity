@@ -1097,6 +1097,7 @@ GameObject:
   - component: {fileID: 331070169}
   - component: {fileID: 331070168}
   - component: {fileID: 331070170}
+  - component: {fileID: 331070171}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -1177,6 +1178,29 @@ MonoBehaviour:
   _followDuration: 0.5
   _followEase: 6
   _returnToRestDuration: 1
+--- !u!223 &331070171
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331070166}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!1 &404944163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5166,6 +5190,8 @@ GameObject:
   - component: {fileID: 1838465407}
   - component: {fileID: 1838465406}
   - component: {fileID: 1838465408}
+  - component: {fileID: 1838465409}
+  - component: {fileID: 1838465410}
   m_Layer: 5
   m_Name: Cream
   m_TagString: Untagged
@@ -5254,6 +5280,46 @@ MonoBehaviour:
   _shakeDuration: 1.5
   _shakeStrength: 40
   _gripOffset: {x: -40, y: -20}
+--- !u!223 &1838465409
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838465404}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
+--- !u!114 &1838465410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838465404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1877266789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6968055815780996578, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
