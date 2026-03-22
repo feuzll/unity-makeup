@@ -9,6 +9,7 @@ namespace abc.Game.Unity
     public class Jar : MonoBehaviour, IPointerClickHandler
     {
         [Header("References")]
+        [SerializeField] private Canvas _canvas;
         [SerializeField] private Hand       _hand;
         [SerializeField] private DragArea   _dragArea;
         [SerializeField] private Character  _character;
@@ -123,10 +124,14 @@ namespace abc.Game.Unity
 
         private bool IsHandOverFace()
         {
+            var handWorldPos = ((RectTransform)_hand.transform).position;
+            var screenPos    = RectTransformUtility.WorldToScreenPoint(
+                _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera,
+                handWorldPos);
+
             return RectTransformUtility.RectangleContainsScreenPoint(
-                _faceZone,
-                _hand.AnchoredPosition, // close enough for UI space check
-                null);
+                _faceZone, screenPos,
+                _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera);
         }
     }
 }

@@ -5039,6 +5039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ba6417585f4b26a479d14653aae31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Jar
+  _canvas: {fileID: 1656463181}
   _hand: {fileID: 331070170}
   _dragArea: {fileID: 763392797}
   _character: {fileID: 1359029891}
