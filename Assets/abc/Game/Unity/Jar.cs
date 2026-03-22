@@ -58,7 +58,9 @@ namespace abc.Game.Unity
         public void OnPointerClick(PointerEventData _)
         {
             if (Data.State != Game.Model.Jar.JarState.Shelved) return;
-            if (_hand.Data.HeldTool is not null) return;
+            if (!_hand.Data.CanGrab) return;
+            
+            new SetHandBusyContext(_hand.Data, true).Execute(); // ← busy from first tween
             
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)transform, _hand, _canvas, out var jarHandLocal)) return;
@@ -76,7 +78,9 @@ namespace abc.Game.Unity
                     new PickUpJarContext(_hand.Data, Data).Execute();
 
                     // 3. Hand (with jar) moves to ready position
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration);
+                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
+                        .OnComplete(() =>
+                            new SetHandBusyContext(_hand.Data, false).Execute()); // ← free after ready
                 });
         }
 

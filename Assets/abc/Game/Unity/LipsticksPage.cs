@@ -46,6 +46,8 @@ namespace abc.Game.Unity
         private void OnLipstickClicked(Lipstick lipstick)
         {
             if (!_hand.Data.CanGrab) return;
+            
+            new SetHandBusyContext(_hand.Data, true).Execute(); // ← busy from first tween
 
             if (!UISpaceUtil.RectWorldToHandLocal(
                     lipstick.Rect, _hand, _canvas, out var lipstickHandLocal)) return;
@@ -60,7 +62,9 @@ namespace abc.Game.Unity
                     lipstick.SetHandCanvas(_hand.GetComponent<Canvas>());
                     lipstick.Rect.SetParent(_hand.transform, worldPositionStays: true);
                     new PickUpLipstickContext(_hand.Data, lipstick.Data).Execute();
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration);
+                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
+                        .OnComplete(() =>
+                            new SetHandBusyContext(_hand.Data, false).Execute()); // ← free after ready
                 });
         }
 
