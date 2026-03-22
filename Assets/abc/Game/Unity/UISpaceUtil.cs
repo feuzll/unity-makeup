@@ -20,5 +20,17 @@ namespace abc.Game.Unity
             var screenPos     = RectTransformUtility.WorldToScreenPoint(cam, centerWorld);
             return hand.ScreenToLocal(screenPos, out result);
         }
+        
+        public static bool WorldToHandLocal(
+            Vector3 worldPos,
+            Hand hand,
+            Canvas canvas,
+            out Vector2 result)
+        {
+            var cam       = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                ? null : canvas.worldCamera;
+            var screenPos = RectTransformUtility.WorldToScreenPoint(cam, worldPos);
+            return hand.ScreenToLocal(screenPos, out result);
+        }
     }
 }

@@ -113,11 +113,13 @@ namespace abc.Game.Unity
                         .OnComplete(() =>
                         {
                             // 3. Apply — one atomic context fires here
+                            
+                            if (!UISpaceUtil.RectWorldToHandLocal(
+                                    _rectTransform, _hand, _canvas, out var jarReturnPos)) return;
+                            
                             new ApplyFaceCreamContext(
                                 _hand.Data, Data, _character.Data).Execute();
 
-                            if (!UISpaceUtil.RectWorldToHandLocal(
-                                    _rectTransform, _hand, _canvas, out var jarReturnPos)) return;
                             // 4. Hand carries jar back to shelf position,
                             //    then jar detaches and hand returns to rest
                             _hand.TweenToAnchored(jarReturnPos, _applyTweenDuration)
