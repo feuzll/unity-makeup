@@ -78,7 +78,6 @@ namespace abc.Game.Unity
             new SetHandBusyContext(_hand.Data, true).Execute();
             
             var lipstick = _held;
-            _dragArea.enabled = false;
 
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)_faceZone.transform, _hand, _canvas,
