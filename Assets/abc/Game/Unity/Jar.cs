@@ -21,6 +21,7 @@ namespace abc.Game.Unity
         [Header("Timing")]
         [SerializeField] private float _pickupTweenDuration = 0.35f;
         [SerializeField] private float _applyTweenDuration  = 0.3f;
+        [SerializeField] private float _returnCreamDuration = 0.3f;
         [SerializeField] private float _shakeDuration       = 0.4f;
         [SerializeField] private float _shakeStrength       = 18f;
         
@@ -28,7 +29,8 @@ namespace abc.Game.Unity
 
         private RectTransform _rectTransform;
         private Image Image => GetComponent<Image>();
-        private Vector2       _shelfAnchoredPosition; // recorded on Start, never changes
+        private Vector2 _shelfAnchoredPosition; // recorded on Start, never changes
+        private Vector3 _shelfWorldPosition;
         private Transform _shelfParent;
 
         private void Awake()
@@ -41,6 +43,7 @@ namespace abc.Game.Unity
         {
             _shelfParent           = transform.parent; // store before any reparenting
             _shelfAnchoredPosition = _rectTransform.anchoredPosition;
+            _shelfWorldPosition     = _rectTransform.position; // world space, no conversion needed
             _dragArea.DragEnded   += TryApplyCream;
             _faceZone.ClickedOnFace += TryApplyCream;
         }
@@ -80,7 +83,7 @@ namespace abc.Game.Unity
             if (Data.State == Game.Model.Jar.JarState.Held)
             {
                 _rectTransform.SetParent(_hand.transform, worldPositionStays: true);
-                _rectTransform.anchoredPosition = new Vector2(0, -20f); // grip offset
+                //_rectTransform.anchoredPosition = new Vector2(0, -20f); // grip offset
                 Image.raycastTarget = false;
             }
             else
@@ -118,21 +121,18 @@ namespace abc.Game.Unity
                             new ClearAcneContext(_character.Data).Execute();
                             
                             // shelf world pos is always correct regardless of jar's current parent
-                            var shelfWorldPos = _shelfParent.TransformPoint(_shelfAnchoredPosition);
+                            //var shelfWorldPos = _shelfParent.TransformPoint(_shelfAnchoredPosition);
 
                             if (!UISpaceUtil.WorldToHandLocal(
-                                    shelfWorldPos, _hand, _canvas, out var shelfHandLocal)) return;
+                                    _shelfWorldPosition, _hand, _canvas, out var shelfHandLocal)) return;
 
                             // 4. Hand carries jar back to shelf position,
                             //    then jar detaches and hand returns to rest
-                            _hand.TweenToAnchored(shelfHandLocal, _applyTweenDuration)
+                            _hand.TweenToAnchored(shelfHandLocal, _returnCreamDuration)
                                 .OnComplete(() =>
                                 {
                                     // jar drops here — after hand arrives at shelf
                                     new ReturnJarContext(_hand.Data, Data).Execute();
-                                    
-                                    // jar is already reparented by OnStateChanged
-                                    _rectTransform.anchoredPosition = _shelfAnchoredPosition;
 
                                     _hand.TweenToRest()
                                         .OnComplete(() => _dragArea.enabled = true);

@@ -1176,8 +1176,7 @@ MonoBehaviour:
   _canvas: {fileID: 1656463181}
   _followDuration: 0.5
   _followEase: 6
-  _restAnchoredPosition: {x: 0, y: 0}
-  _returnToRestDuration: 0.3
+  _returnToRestDuration: 1
 --- !u!1 &404944163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,9 +5056,10 @@ MonoBehaviour:
   _dragArea: {fileID: 763392797}
   _character: {fileID: 1359029891}
   _faceZone: {fileID: 624077883}
-  _pickupTweenDuration: 2
-  _applyTweenDuration: 3
-  _shakeDuration: 6
+  _pickupTweenDuration: 1.5
+  _applyTweenDuration: 1.5
+  _returnCreamDuration: 1.5
+  _shakeDuration: 1.5
   _shakeStrength: 40
 --- !u!1 &1877266789 stripped
 GameObject:
