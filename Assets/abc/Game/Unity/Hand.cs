@@ -41,7 +41,7 @@ namespace abc.Game.Unity
                     out var localPoint)) return;
 
             _moveTween.Stop();
-            _moveTween = PrimeTween.Tween.UIAnchoredPosition(
+            _moveTween = Tween.UIAnchoredPosition(
                 _rectTransform, localPoint, _followDuration, _followEase);
         }
 
@@ -49,8 +49,7 @@ namespace abc.Game.Unity
         public PrimeTween.Tween TweenToAnchored(Vector2 target, float duration, Ease ease = Ease.OutQuad)
         {
             _moveTween.Stop();
-            _moveTween = PrimeTween.Tween.UIAnchoredPosition(_rectTransform, target, duration, ease);
-            return _moveTween;
+            return Tween.UIAnchoredPosition(_rectTransform, target, duration, ease);
         }
 
         public PrimeTween.Tween TweenToRest() =>

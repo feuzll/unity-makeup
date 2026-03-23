@@ -1,5 +1,6 @@
 using abc.Game.Contexts;
 using abc.Game.Model;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -75,31 +76,22 @@ namespace abc.Game.Unity
         
         public void OnPointerClick(PointerEventData _)
         {
-            if (Data.State != Game.Model.Jar.JarState.Shelved) return;
+            if (Data.State != Model.Jar.JarState.Shelved) return;
             if (!_hand.Data.CanGrab) return;
-            
-            new SetHandBusyContext(_hand.Data, true).Execute(); // ← busy from first tween
-            
-            if (!UISpaceUtil.RectWorldToHandLocal(
-                    (RectTransform)transform, _hand, _canvas, out var jarHandLocal)) return;
 
-            // compensate so jar lands at grip offset naturally after reparent
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    _rectTransform, _hand, _canvas, out var jarHandLocal)) return;
+
             var pickupTarget  = jarHandLocal - _gripOffset;
             var readyPosition = Vector2.Lerp(_hand.RestPosition, pickupTarget, 0.5f);
-            
-            
-            // 1. Hand tweens to jar
-            _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
-                .OnComplete(() =>
-                {
-                    // 2. State: jar is now held
-                    new PickUpJarContext(_hand.Data, Data).Execute();
 
-                    // 3. Hand (with jar) moves to ready position
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
-                        .OnComplete(() =>
-                            new SetHandBusyContext(_hand.Data, false).Execute()); // ← free after ready
-                });
+            new SetHandBusyContext(_hand.Data, true).Execute();
+
+            Sequence.Create()
+                .Chain(_hand.TweenToAnchored(pickupTarget, _pickupTweenDuration))
+                .ChainCallback(() => new PickUpJarContext(_hand.Data, Data).Execute())
+                .Chain(_hand.TweenToAnchored(readyPosition, _pickupTweenDuration))
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
         private void OnStateChanged()
@@ -121,49 +113,27 @@ namespace abc.Game.Unity
         
         private void StartApplySequence()
         {
-            /*if (Data.State != Game.Model.Jar.JarState.Held) return;
-            if (!_faceZone.IsHandOver) return;*/
-
             new SetHandBusyContext(_hand.Data, true).Execute();
-            
+
             if (!UISpaceUtil.RectWorldToHandLocal(
-                    (RectTransform)_faceZone.transform, _hand, _canvas, out var faceLocalPos)) return;
+                    (RectTransform)_faceZone.transform, _hand, _canvas,
+                    out var faceLocalPos)) return;
 
-            // 1. Hand tweens to face center
-            _hand.TweenToAnchored(faceLocalPos, _applyTweenDuration)
-                .OnComplete(() =>
-                {
-                    // 2. Shake
-                    PrimeTween.Tween.ShakeLocalPosition(
-                            _handRect,
-                            strength: new Vector3(_shakeStrength, _shakeStrength), _shakeDuration)
-                        .OnComplete(() =>
-                        {
-                            // acne clears exactly here — after shake, before moving away
-                            new ClearAcneContext(_character.Data).Execute();
-                            
-                            // shelf world pos is always correct regardless of jar's current parent
-                            //var shelfWorldPos = _shelfParent.TransformPoint(_shelfAnchoredPosition);
+            var jarCenterWorld = _rectTransform.TransformPoint(_rectTransform.rect.center);
 
-                            if (!UISpaceUtil.WorldToHandLocal(
-                                    _shelfWorldPosition, _hand, _canvas, out var shelfHandLocal)) return;
-                            
-                            // compensate grip offset so jar lands exactly on shelf after reparent
-                            var returnTarget = shelfHandLocal - _gripOffset;
+            if (!UISpaceUtil.WorldToHandLocal(
+                    _shelfWorldPosition, _hand, _canvas,
+                    out var shelfHandLocal)) return;
 
-                            // 4. Hand carries jar back to shelf position,
-                            //    then jar detaches and hand returns to rest
-                            _hand.TweenToAnchored(returnTarget, _returnCreamDuration)
-                                .OnComplete(() =>
-                                {
-                                    // jar drops here — after hand arrives at shelf
-                                    new ReturnJarContext(_hand.Data, Data).Execute();
-
-                                    _hand.TweenToRest().OnComplete(() =>
-                                        new SetHandBusyContext(_hand.Data, false).Execute());
-                                });
-                        });
-                });
+            Sequence.Create()
+                .Chain(_hand.TweenToAnchored(faceLocalPos, _applyTweenDuration))
+                .Chain(Tween.ShakeLocalPosition(_handRect,
+                    new Vector3(_shakeStrength, _shakeStrength, 0f), _shakeDuration))
+                .ChainCallback(() => new ClearAcneContext(_character.Data).Execute())
+                .Chain(_hand.TweenToAnchored(shelfHandLocal - _gripOffset, _applyTweenDuration))
+                .ChainCallback(() => new ReturnJarContext(_hand.Data, Data).Execute())
+                .Chain(_hand.TweenToRest())
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
     }
 }
