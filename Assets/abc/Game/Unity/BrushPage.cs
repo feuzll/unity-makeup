@@ -65,9 +65,17 @@ namespace abc.Game.Unity
             // 1. hand → brush
             if (!UISpaceUtil.RectWorldToHandLocal(
                     _brush.Rect, _hand, _canvas, out var brushHandLocal)) return;
+            
+            // face center in hand local space
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    (RectTransform)_faceZone.transform, _hand, _canvas,
+                    out var faceHandLocal)) return;
 
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    square.Rect, _hand, _canvas, out var squareHandLocal)) return;
+            
             var pickupTarget  = brushHandLocal - _gripOffset;
-            var readyPosition = Vector2.Lerp(_hand.RestPosition, pickupTarget, 0.5f);
+            var readyPosition = Vector2.Lerp(squareHandLocal, faceHandLocal, 0.5f);
 
             _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
                 .OnComplete(() =>
@@ -75,10 +83,6 @@ namespace abc.Game.Unity
                     _brush.SetHandCanvas(_hand.GetComponent<Canvas>());
                     _brush.Rect.SetParent(_hand.transform, worldPositionStays: true);
                     new PickUpBrushContext(_hand.Data, _brush.Data).Execute();
-
-                    // 2. hand (with brush) → color square
-                    if (!UISpaceUtil.RectWorldToHandLocal(
-                            square.Rect, _hand, _canvas, out var squareHandLocal)) return;
 
                     _hand.TweenToAnchored(squareHandLocal, _toColorTweenDuration)
                         .OnComplete(() =>
