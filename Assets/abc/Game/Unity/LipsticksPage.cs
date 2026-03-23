@@ -71,9 +71,14 @@ namespace abc.Game.Unity
 
             if (!UISpaceUtil.RectWorldToHandLocal(
                     lipstick.Rect, _hand, _canvas, out var lipstickHandLocal)) return;
+            
+            // face center in hand local space
+            if (!UISpaceUtil.RectWorldToHandLocal(
+                    (RectTransform)_faceZone.transform, _hand, _canvas,
+                    out var faceHandLocal)) return;
 
             var pickupTarget  = lipstickHandLocal - _gripOffset;
-            var readyPosition = Vector2.Lerp(_hand.RestPosition, pickupTarget, 0.5f);
+            var readyPosition = Vector2.Lerp(pickupTarget, faceHandLocal, 0.5f);
 
             _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
                 .OnComplete(() =>
