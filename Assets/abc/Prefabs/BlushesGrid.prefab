@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3430879247616586901}
   - component: {fileID: 3414312429199661506}
   - component: {fileID: 6425288338416328087}
+  - component: {fileID: 3666130508773413499}
   m_Layer: 5
   m_Name: BlushesGrid
   m_TagString: Untagged
@@ -83,6 +84,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!114 &3666130508773413499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682021509354232287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156464005a3642378ad52b46a67f80e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushPage
+  _hand: {fileID: 0}
+  _dragArea: {fileID: 0}
+  _character: {fileID: 0}
+  _faceZone: {fileID: 0}
+  _canvas: {fileID: 0}
+  _brush: {fileID: 0}
+  _colorSquares:
+  - {fileID: 6434295090873703453}
+  - {fileID: 4644555023460036304}
+  - {fileID: 1870948589773547267}
+  - {fileID: 25772952559034216}
+  - {fileID: 886701902390824027}
+  - {fileID: 8479917783192111817}
+  - {fileID: 7640780973620166942}
+  - {fileID: 1971748515357636147}
+  - {fileID: 5974779633554746457}
+  _brushType: 1
+  _pickupTweenDuration: 0.5
+  _toColorTweenDuration: 1
+  _applyTweenDuration: 1
+  _returnDuration: 1
+  _shakeDuration: 1
+  _shakeStrength: 18
+  _gripOffset: {x: 0, y: -20}
+  _faceOffset: {x: 50, y: -100}
 --- !u!1 &1912638363430243110
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +132,7 @@ GameObject:
   - component: {fileID: 4886038963887161726}
   - component: {fileID: 2561426186919493287}
   - component: {fileID: 8346487662151613691}
+  - component: {fileID: 25772952559034216}
   m_Layer: 5
   m_Name: Blush (4)
   m_TagString: Untagged
@@ -158,6 +197,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &25772952559034216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912638363430243110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4592092948870561078
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +221,7 @@ GameObject:
   - component: {fileID: 8777031422592855514}
   - component: {fileID: 1324610114698854998}
   - component: {fileID: 1403711355248831426}
+  - component: {fileID: 4644555023460036304}
   m_Layer: 5
   m_Name: Blush (2)
   m_TagString: Untagged
@@ -233,6 +286,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4644555023460036304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592092948870561078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4672455326863984298
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +310,7 @@ GameObject:
   - component: {fileID: 2883661223041610252}
   - component: {fileID: 6698073252227424832}
   - component: {fileID: 4821399665477077}
+  - component: {fileID: 5974779633554746457}
   m_Layer: 5
   m_Name: Blush (9)
   m_TagString: Untagged
@@ -308,6 +375,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5974779633554746457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672455326863984298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5015553987815745616
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +399,7 @@ GameObject:
   - component: {fileID: 527790350691170900}
   - component: {fileID: 271508325401751778}
   - component: {fileID: 3916227799451693354}
+  - component: {fileID: 1870948589773547267}
   m_Layer: 5
   m_Name: Blush (3)
   m_TagString: Untagged
@@ -383,6 +464,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1870948589773547267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015553987815745616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5430397708988907032
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +488,7 @@ GameObject:
   - component: {fileID: 5916797633955090206}
   - component: {fileID: 6133514265088764479}
   - component: {fileID: 343338119608487050}
+  - component: {fileID: 1971748515357636147}
   m_Layer: 5
   m_Name: Blush (8)
   m_TagString: Untagged
@@ -458,6 +553,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1971748515357636147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430397708988907032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5657207774208078758
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +577,7 @@ GameObject:
   - component: {fileID: 7315342701803913110}
   - component: {fileID: 1303844360963416943}
   - component: {fileID: 495339920098683466}
+  - component: {fileID: 6434295090873703453}
   m_Layer: 5
   m_Name: Blush (1)
   m_TagString: Untagged
@@ -533,6 +642,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6434295090873703453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657207774208078758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5822070536459287950
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +666,7 @@ GameObject:
   - component: {fileID: 4979274884237383652}
   - component: {fileID: 590526542786131014}
   - component: {fileID: 551300837308934999}
+  - component: {fileID: 7640780973620166942}
   m_Layer: 5
   m_Name: Blush (7)
   m_TagString: Untagged
@@ -608,6 +731,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7640780973620166942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822070536459287950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7199535327904572640
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +755,7 @@ GameObject:
   - component: {fileID: 3553569372431478705}
   - component: {fileID: 7827419434381064785}
   - component: {fileID: 4118154749977849503}
+  - component: {fileID: 886701902390824027}
   m_Layer: 5
   m_Name: Blush (5)
   m_TagString: Untagged
@@ -683,6 +820,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &886701902390824027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199535327904572640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8280138198577602284
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +844,7 @@ GameObject:
   - component: {fileID: 6631685544764049237}
   - component: {fileID: 5814772029759076254}
   - component: {fileID: 9001560564278607043}
+  - component: {fileID: 8479917783192111817}
   m_Layer: 5
   m_Name: Blush (6)
   m_TagString: Untagged
@@ -758,3 +909,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8479917783192111817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280138198577602284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}

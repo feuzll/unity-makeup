@@ -47,8 +47,11 @@ namespace abc.Game.Unity
                 _canvas.overrideSorting = false;
         }
 
-        private void OnColorChanged() =>
-            _blurCircle.color = 
-                new Color(Data.Color.R,  Data.Color.G, Data.Color.B, Data.Color.A);
+        private void OnColorChanged()
+        {
+            //Debug.Log($"changing brush color to {Data.Color}");
+            _blurCircle.color =
+                UISpaceUtil.DrawingColorToUnityColor(Data.Color);
+        }
     }
 }

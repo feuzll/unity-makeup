@@ -44,5 +44,15 @@ namespace abc.Game.Unity
             // Create the System.Drawing.Color object using the FromArgb method
             return System.Drawing.Color.FromArgb(a, r, g, b);
         }
+        
+        public static UnityEngine.Color DrawingColorToUnityColor(System.Drawing.Color drawingColor)
+        {
+            return new UnityEngine.Color(
+                drawingColor.R / 255.0f,
+                drawingColor.G / 255.0f,
+                drawingColor.B / 255.0f,
+                drawingColor.A / 255.0f
+            );
+        }
     }
 }
