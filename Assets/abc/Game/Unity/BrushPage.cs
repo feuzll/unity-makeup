@@ -1,8 +1,9 @@
 #nullable enable
 using abc.Game.Contexts;
 using abc.Game.Model;
+using PrimeTween;
+using Tween = PrimeTween.Tween;
 using UnityEngine;
-using Color = System.Drawing.Color;
 
 namespace abc.Game.Unity
 {
@@ -65,47 +66,21 @@ namespace abc.Game.Unity
             _pendingSquare = square;
             new SetHandBusyContext(_hand.Data, true).Execute();
 
-            // 1. hand → brush
-            if (!UISpaceUtil.RectWorldToHandLocal(
-                    _brush.Rect, _hand, _canvas, out var brushHandLocal)) return;
-            
-            // face center in hand local space
-            if (!UISpaceUtil.RectWorldToHandLocal(
-                    (RectTransform)_faceZone.transform, _hand, _canvas,
-                    out var faceHandLocal)) return;
+            if (!UISpaceUtil.RectWorldToHandLocal(_brush.Rect, _hand, _canvas, out var brushHandLocal)) return;
+            if (!UISpaceUtil.RectWorldToHandLocal((RectTransform)_faceZone.transform, _hand, _canvas, out var faceHandLocal)) return;
+            if (!UISpaceUtil.RectWorldToHandLocal(square.Rect, _hand, _canvas, out var squareHandLocal)) return;
 
-            if (!UISpaceUtil.RectWorldToHandLocal(
-                    square.Rect, _hand, _canvas, out var squareHandLocal)) return;
-            
             var pickupTarget  = brushHandLocal - _gripOffset;
             var readyPosition = Vector2.Lerp(squareHandLocal, faceHandLocal, 0.5f);
 
-            _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
-                .OnComplete(() =>
-                {
-                    _brush.SetHandCanvas(_hand.GetComponent<Canvas>());
-                    _brush.Rect.SetParent(_hand.transform, worldPositionStays: true);
-                    new PickUpBrushContext(_hand.Data, _brush.Data).Execute();
-
-                    _hand.TweenToAnchored(squareHandLocal + _colorPickOffset, _toColorTweenDuration)
-                        .OnComplete(() =>
-                        {
-                            // 3. color brush
-                            var dataColor = UISpaceUtil.ConvertUnityToSystemDrawingColor(square.Color);
-                            var c     = square.Color; // UnityEngine.Color
-                            var brushColor = new BrushColor(c.r, c.g, c.b, c.a);
-                            new ColorBrushContext(_brush.Data, brushColor).Execute();
-                            // 4. shake
-                            PrimeTween.Tween.ShakeLocalPosition(
-                                    _handRect,
-                                    strength: new Vector3(_shakeStrength, 0f, 0f),
-                                    _shakeDuration)
-                                .OnComplete(() => //5. 
-                                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
-                                        .OnComplete(() =>
-                                            new SetHandBusyContext(_hand.Data, false).Execute()));
-                        });
-                });
+            Sequence.Create()
+                .Chain(Tween.UIAnchoredPosition(_handRect, pickupTarget, _pickupTweenDuration))
+                .ChainCallback(() => GrabBrush(square))
+                .Chain(Tween.UIAnchoredPosition(_handRect, squareHandLocal + _colorPickOffset, _toColorTweenDuration))
+                .ChainCallback(() => ColorBrush(square))
+                .Chain(Tween.ShakeLocalPosition(_handRect, new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
+                .Chain(Tween.UIAnchoredPosition(_handRect, readyPosition, _pickupTweenDuration))
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
         // ── Application ───────────────────────────────────────────────────────
@@ -131,51 +106,52 @@ namespace abc.Game.Unity
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceLocalPos)) return;
 
-            var targetPos = faceLocalPos + _faceOffset;
+            if (!UISpaceUtil.WorldToHandLocal(
+                    _brush.ShelfWorldPosition, _hand, _canvas,
+                    out var shelfHandLocal)) return;
 
-            _hand.TweenToAnchored(targetPos, _applyTweenDuration)
-                .OnComplete(() =>
-                {
-                    PrimeTween.Tween.ShakeLocalPosition(
-                            _hand.GetComponent<RectTransform>(),
-                            strength: new Vector3(_shakeStrength, _shakeStrength, 0f),
-                            _shakeDuration)
-                        .OnComplete(() =>
-                        {
-                            // apply face color
-                            if (_pendingSquare is not null)
-                            {
-                                switch (_brushType)
-                                {
-                                    case BrushType.Eyes:
-                                        new ApplyEyeColorContext(
-                                            _character.Data, _pendingSquare.Index).Execute();
-                                        break;
-                                    case BrushType.Blush:
-                                        new ApplyBlushColorContext(
-                                            _character.Data, _pendingSquare.Index).Execute();
-                                        break;
-                                }
-                            }
-
-                            if (!UISpaceUtil.WorldToHandLocal(
-                                    _brush.ShelfWorldPosition, _hand, _canvas,
-                                    out var shelfHandLocal)) return;
-
-                            _hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration)
-                                .OnComplete(() =>
-                                {
-                                    new ReturnBrushContext(_hand.Data, _brush.Data).Execute();
-                                    _brush.Rect.SetParent(
-                                        _brush.ShelfParent, worldPositionStays: true);
-                                    _pendingSquare = null;
-
-                                    _hand.TweenToRest()
-                                        .OnComplete(() =>
-                                            new SetHandBusyContext(_hand.Data, false).Execute());
-                                });
-                        });
-                });
+            Sequence.Create()
+                .Chain(Tween.UIAnchoredPosition(_handRect, faceLocalPos + _faceOffset, _applyTweenDuration))
+                .Chain(Tween.ShakeLocalPosition(_handRect, new Vector3(_shakeStrength, _shakeStrength, 0f), _shakeDuration))
+                .ChainCallback(ApplyFaceColor)
+                .Chain(Tween.UIAnchoredPosition(_handRect, shelfHandLocal - _gripOffset, _returnDuration))
+                .ChainCallback(ReturnBrush)
+                .Chain(_hand.TweenToRest())
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
+        }
+        
+        private void ApplyFaceColor()
+        {
+            if (_pendingSquare is null) return;
+            switch (_brushType)
+            {
+                case BrushType.Eyes:
+                    new ApplyEyeColorContext(_character.Data, _pendingSquare.Index).Execute();
+                    break;
+                case BrushType.Blush:
+                    new ApplyBlushColorContext(_character.Data, _pendingSquare.Index).Execute();
+                    break;
+            }
+        }
+        
+        private void ColorBrush(BrushColorPicker square)
+        {
+            var c = square.Color;
+            new ColorBrushContext(_brush.Data, new BrushColor(c.r, c.g, c.b, c.a)).Execute();
+        }
+        
+        private void GrabBrush(BrushColorPicker square)
+        {
+            _brush.SetHandCanvas(_hand.GetComponent<Canvas>());
+            _brush.Rect.SetParent(_hand.transform, worldPositionStays: true);
+            new PickUpBrushContext(_hand.Data, _brush.Data).Execute();
+        }
+        
+        private void ReturnBrush()
+        {
+            new ReturnBrushContext(_hand.Data, _brush.Data).Execute();
+            _brush.Rect.SetParent(_brush.ShelfParent, worldPositionStays: true);
+            _pendingSquare = null;
         }
     }
 }
