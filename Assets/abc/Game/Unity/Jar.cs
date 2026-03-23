@@ -88,9 +88,9 @@ namespace abc.Game.Unity
             new SetHandBusyContext(_hand.Data, true).Execute();
 
             Sequence.Create()
-                .Chain(_hand.TweenToAnchored(pickupTarget, _pickupTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget))
                 .ChainCallback(() => new PickUpJarContext(_hand.Data, Data).Execute())
-                .Chain(_hand.TweenToAnchored(readyPosition, _pickupTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget, readyPosition))
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
@@ -119,18 +119,19 @@ namespace abc.Game.Unity
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceLocalPos)) return;
 
-            var jarCenterWorld = _rectTransform.TransformPoint(_rectTransform.rect.center);
-
             if (!UISpaceUtil.WorldToHandLocal(
                     _shelfWorldPosition, _hand, _canvas,
                     out var shelfHandLocal)) return;
+            
+            var faceTarget   = faceLocalPos;
+            var returnTarget = shelfHandLocal - _gripOffset;
 
             Sequence.Create()
-                .Chain(_hand.TweenToAnchored(faceLocalPos, _applyTweenDuration))
+                .Chain(_hand.TweenToAnchored(faceTarget))
                 .Chain(Tween.ShakeLocalPosition(_handRect,
                     new Vector3(_shakeStrength, _shakeStrength, 0f), _shakeDuration))
                 .ChainCallback(() => new ClearAcneContext(_character.Data).Execute())
-                .Chain(_hand.TweenToAnchored(shelfHandLocal - _gripOffset, _applyTweenDuration))
+                .Chain(_hand.TweenToAnchored(faceTarget, returnTarget))
                 .ChainCallback(() => new ReturnJarContext(_hand.Data, Data).Execute())
                 .Chain(_hand.TweenToRest())
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());

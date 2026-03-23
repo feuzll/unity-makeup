@@ -15,6 +15,13 @@ namespace abc.Game.Unity
         [SerializeField] private Ease   _followEase     = Ease.OutQuad;
         [SerializeField] private float   _returnToRestDuration = 0.3f;
         
+        [Header("Scripted movement")]
+        [SerializeField] private float _moveSpeed       = 800f; // px/sec, scripted sequences
+        [SerializeField] private float _returnToRestSpeed = 600f;
+
+        public float MoveSpeed        => _moveSpeed;
+        public float ReturnToRestSpeed => _returnToRestSpeed;
+        
         public Model.Hand Data { get; } = new();
 
         private RectTransform _rectTransform;
@@ -45,15 +52,33 @@ namespace abc.Game.Unity
                 _rectTransform, localPoint, _followDuration, _followEase);
         }
 
+        public Tween TweenToAnchored(Vector2 to)
+        {
+            _moveTween.Stop();
+            var duration = Vector2.Distance(_rectTransform.anchoredPosition, to) / _moveSpeed;
+            return Tween.UIAnchoredPosition(_rectTransform, to, duration);
+        }
+
+        public Tween TweenToAnchored(Vector2 from, Vector2 to)
+        {
+            var duration = Vector2.Distance(from, to) / _moveSpeed;
+            return Tween.UIAnchoredPosition(_rectTransform, to, duration);
+        }
+
+        public Tween TweenToRest()
+        {
+            _moveTween.Stop();
+            var duration = Vector2.Distance(
+                _rectTransform.anchoredPosition, _restAnchoredPosition) / _returnToRestSpeed;
+            return Tween.UIAnchoredPosition(_rectTransform, _restAnchoredPosition, duration);
+        }
+        
         // Called by JarBehaviour for scripted movement
         public PrimeTween.Tween TweenToAnchored(Vector2 target, float duration, Ease ease = Ease.OutQuad)
         {
             _moveTween.Stop();
             return Tween.UIAnchoredPosition(_rectTransform, target, duration, ease);
         }
-
-        public PrimeTween.Tween TweenToRest() =>
-            TweenToAnchored(_restAnchoredPosition, _returnToRestDuration);
 
         public Vector2 AnchoredPosition => _rectTransform.anchoredPosition;
         public Vector2 RestPosition     => _restAnchoredPosition;
