@@ -1,5 +1,6 @@
 #nullable enable
 using abc.Game.Contexts;
+using PrimeTween;
 using UnityEngine;
 
 namespace abc.Game.Unity
@@ -29,9 +30,12 @@ namespace abc.Game.Unity
         
         // currently held lipstick — null when hand is empty
         private Lipstick? _held;
+        private RectTransform _handRect;
 
         private void Start()
         {
+            _handRect = _hand.GetComponent<RectTransform>();
+            
             foreach (var l in _lipsticks)
                 l.Clicked += OnLipstickClicked;
 
@@ -66,13 +70,10 @@ namespace abc.Game.Unity
         private void OnLipstickClicked(Lipstick lipstick)
         {
             if (!_hand.Data.CanGrab) return;
-            
-            new SetHandBusyContext(_hand.Data, true).Execute(); // ← busy from first tween
 
             if (!UISpaceUtil.RectWorldToHandLocal(
                     lipstick.Rect, _hand, _canvas, out var lipstickHandLocal)) return;
-            
-            // face center in hand local space
+
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceHandLocal)) return;
@@ -80,61 +81,56 @@ namespace abc.Game.Unity
             var pickupTarget  = lipstickHandLocal - _gripOffset;
             var readyPosition = Vector2.Lerp(pickupTarget, faceHandLocal, 0.5f);
 
-            _hand.TweenToAnchored(pickupTarget, _pickupTweenDuration)
-                .OnComplete(() =>
-                {
-                    _held = lipstick;
-                    lipstick.SetHandCanvas(_hand.GetComponent<Canvas>());
-                    lipstick.Rect.SetParent(_hand.transform, worldPositionStays: true);
-                    new PickUpLipstickContext(_hand.Data, lipstick.Data).Execute();
-                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
-                        .OnComplete(() =>
-                            new SetHandBusyContext(_hand.Data, false).Execute()); // ← free after ready
-                });
+            new SetHandBusyContext(_hand.Data, true).Execute();
+
+            Sequence.Create()
+                .Chain(_hand.TweenToAnchored(pickupTarget, _pickupTweenDuration))
+                .ChainCallback(() => GrabLipstick(lipstick))
+                .Chain(_hand.TweenToAnchored(readyPosition, _pickupTweenDuration))
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
+        private void GrabLipstick(Lipstick lipstick)
+        {
+            _held = lipstick;
+            lipstick.SetHandCanvas(_hand.GetComponent<Canvas>());
+            lipstick.Rect.SetParent(_hand.transform, worldPositionStays: true);
+            new PickUpLipstickContext(_hand.Data, lipstick.Data).Execute();
+        }
+        
         // ── Application ───────────────────────────────────────────────────────
 
         private void StartApplySequence(Lipstick lipstick)
         {
             new SetHandBusyContext(_hand.Data, true).Execute();
-            
+
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceLocalPos)) return;
 
-            // offset downward toward lips
-            var lipsLocalPos = faceLocalPos + _lipsOffset;
-            
-            _hand.TweenToAnchored(lipsLocalPos, _applyTweenDuration)
-                .OnComplete(() =>
-                {
-                    // x-axis only shake
-                    PrimeTween.Tween.ShakeLocalPosition(
-                            _hand.GetComponent<RectTransform>(),
-                            strength: new Vector3(_shakeStrength, 0f, 0f),
-                            _shakeDuration)
-                        .OnComplete(() =>
-                        {
-                            new ApplyLipstickContext(_character.Data, lipstick.Index).Execute();
+            if (!UISpaceUtil.WorldToHandLocal(
+                    lipstick.ShelfWorldPosition, _hand, _canvas,
+                    out var shelfHandLocal)) return;
 
-                            if (!UISpaceUtil.WorldToHandLocal(
-                                    lipstick.ShelfWorldPosition, _hand, _canvas,
-                                    out var shelfHandLocal)) return;
-
-                            _hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration)
-                                .OnComplete(() =>
-                                {
-                                    new ReturnLipstickContext(_hand.Data, lipstick.Data).Execute();
-                                    lipstick.Rect.SetParent(
-                                        lipstick.ShelfParent, worldPositionStays: true);
-                                    _held = null;
-
-                                    _hand.TweenToRest()
-                                        .OnComplete(() => { new SetHandBusyContext(_hand.Data, false).Execute(); });
-                                });
-                        });
-                });
+            Sequence.Create()
+                .Chain(_hand.TweenToAnchored(faceLocalPos + _lipsOffset, _applyTweenDuration))
+                .Chain(Tween.ShakeLocalPosition(_handRect,
+                    new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
+                .ChainCallback(() => RaiseApplyLipstickContext(lipstick))
+                .Chain(_hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration))
+                .ChainCallback(() => ReturnLipstick(lipstick))
+                .Chain(_hand.TweenToRest())
+                .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
+        }
+        private void RaiseApplyLipstickContext(Lipstick lipstick)
+        {
+            new ApplyLipstickContext(_character.Data, lipstick.Index).Execute();
+        }
+        private void ReturnLipstick(Lipstick lipstick)
+        {
+            new ReturnLipstickContext(_hand.Data, lipstick.Data).Execute();
+            lipstick.Rect.SetParent(lipstick.ShelfParent, worldPositionStays: true);
+            _held = null;
         }
     }
 }
