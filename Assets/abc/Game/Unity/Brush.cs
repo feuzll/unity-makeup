@@ -50,8 +50,8 @@ namespace abc.Game.Unity
         private void OnColorChanged()
         {
             //Debug.Log($"changing brush color to {Data.Color}");
-            _blurCircle.color =
-                UISpaceUtil.DrawingColorToUnityColor(Data.Color);
+            var c = Data.Color;
+            _blurCircle.color = new UnityEngine.Color(c.R, c.G, c.B, c.A);
         }
     }
 }

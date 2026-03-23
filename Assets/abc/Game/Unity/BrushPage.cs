@@ -1,5 +1,6 @@
 #nullable enable
 using abc.Game.Contexts;
+using abc.Game.Model;
 using UnityEngine;
 using Color = System.Drawing.Color;
 
@@ -84,7 +85,9 @@ namespace abc.Game.Unity
                         {
                             // 3. color brush
                             var dataColor = UISpaceUtil.ConvertUnityToSystemDrawingColor(square.Color);
-                            new ColorBrushContext(_brush.Data, dataColor).Execute();
+                            var c     = square.Color; // UnityEngine.Color
+                            var brushColor = new BrushColor(c.r, c.g, c.b, c.a);
+                            new ColorBrushContext(_brush.Data, brushColor).Execute();
 
                             // 4. move to ready position
                             _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)

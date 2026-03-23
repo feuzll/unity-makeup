@@ -1,4 +1,5 @@
 using System.Drawing;
+using abc.Game.Model;
 using Brush = abc.Game.Model.Brush;
 
 namespace abc.Game.Contexts
@@ -6,9 +7,9 @@ namespace abc.Game.Contexts
     public class ColorBrushContext : ContextBase
     {
         private readonly Brush _brush;
-        private readonly Color     _color;
+        private readonly BrushColor     _color;
 
-        public ColorBrushContext(Brush brush, Color color)
+        public ColorBrushContext(Brush brush, BrushColor color)
         {
             _brush = brush;
             _color = color;

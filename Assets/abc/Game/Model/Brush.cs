@@ -1,19 +1,29 @@
 
 #nullable enable
+
+
 using System;
-using System.Drawing;
 
 namespace abc.Game.Model
 {
+    public readonly struct BrushColor
+    {
+        public readonly float R, G, B, A;
+        public BrushColor(float r, float g, float b, float a)
+        {
+            R = r; G = g; B = b; A = a;
+        }
+    }
+    
     public class Brush : IHand.ITool
     {
         public enum BrushState { Shelved, Held }
 
         private BrushState _state = BrushState.Shelved;
-        private Color      _color = Color.White;
 
         public BrushState State => _state;
-        public Color      Color => _color;
+        private BrushColor _color = new BrushColor(1f, 1f, 1f, 1f);
+        public  BrushColor  Color => _color;
 
         public event Action? StateChanged;
         public event Action? ColorChanged;
@@ -43,7 +53,7 @@ namespace abc.Game.Model
                 _brush = brush;
             }
 
-            public void SetColor(Color color)
+            public void SetColor(BrushColor color)
             {
                 _brush._color = color;
                 _brush.ColorChanged?.Invoke();
