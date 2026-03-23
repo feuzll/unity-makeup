@@ -7235,6 +7235,10 @@ PrefabInstance:
       propertyPath: _character
       value: 
       objectReference: {fileID: 1359029891}
+    - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+      propertyPath: _colorPickOffset.y
+      value: -130
+      objectReference: {fileID: 0}
     - target: {fileID: 1948456733758910235, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: m_Alpha
       value: 1

@@ -32,6 +32,7 @@ namespace abc.Game.Unity
         [Header("Grip")]
         [SerializeField] private Vector2 _gripOffset  = new Vector2(0, -20f);
         [SerializeField] private Vector2 _faceOffset  = new Vector2(0, -20f); // eyes/blush placement
+        [SerializeField] private Vector2 _colorPickOffset  = new Vector2(0, -130f); // eyes/blush placement
 
         private BrushColorPicker? _pendingSquare; // selected before brush is grabbed
 
@@ -84,7 +85,7 @@ namespace abc.Game.Unity
                     _brush.Rect.SetParent(_hand.transform, worldPositionStays: true);
                     new PickUpBrushContext(_hand.Data, _brush.Data).Execute();
 
-                    _hand.TweenToAnchored(squareHandLocal, _toColorTweenDuration)
+                    _hand.TweenToAnchored(squareHandLocal + _colorPickOffset, _toColorTweenDuration)
                         .OnComplete(() =>
                         {
                             // 3. color brush
