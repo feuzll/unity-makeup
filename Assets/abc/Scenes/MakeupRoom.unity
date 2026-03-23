@@ -3250,7 +3250,7 @@ MonoBehaviour:
   ShadowLTR: {fileID: 1808496535}
   LeftPageTransform: {fileID: 810263173}
   RightPageTransform: {fileID: 287785245}
-  interactable: 1
+  interactable: 0
   enableShadowEffect: 0
   hasTransparentPages: 0
   currentPaper: 2
