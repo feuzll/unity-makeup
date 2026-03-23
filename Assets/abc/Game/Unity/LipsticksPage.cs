@@ -119,7 +119,7 @@ namespace abc.Game.Unity
                 .Chain(_hand.TweenToAnchored(faceTarget))
                 .Chain(Tween.ShakeLocalPosition(_handRect,
                     new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
-                .ChainCallback(() => new ApplyLipstickContext(_character.Data, lipstick.Index))
+                .ChainCallback(() => new ApplyLipstickContext(_character.Data, lipstick.Index).Execute())
                 .Chain(_hand.TweenToAnchored(faceTarget, returnTarget))
                 .ChainCallback(() => ReturnLipstick(lipstick))
                 .Chain(_hand.TweenToRest())
