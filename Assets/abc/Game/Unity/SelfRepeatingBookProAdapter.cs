@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using UnityEngine;
 
@@ -10,17 +11,16 @@ namespace abc.Game.Unity
         [SerializeField] private float pageFlipTime = 1;
         
         private bool _isPageFlipping = false;
-
-        private void Start()
-        {
-            
-        }
+        public bool IsFlipping => _isPageFlipping;
+        public event System.Action<bool>? FlippingChanged; // true = started, false = finished
+        
 
         public void FlipRightPage()
         {
             if (_isPageFlipping) return;
             if (book.CurrentPaper >= book.papers.Length) return;
             _isPageFlipping = true;
+            FlippingChanged?.Invoke(true);
             PageFlipper.FlipPage(book, pageFlipTime, 
                 FlipMode.RightToLeft, OnFlipComplete);
         }
@@ -29,6 +29,7 @@ namespace abc.Game.Unity
             if (_isPageFlipping) return;
             if (book.CurrentPaper <= 0) return;
             _isPageFlipping = true;
+            FlippingChanged?.Invoke(true);
             PageFlipper.FlipPage(book, pageFlipTime, 
                 FlipMode.LeftToRight, OnFlipComplete);
         }
@@ -37,6 +38,7 @@ namespace abc.Game.Unity
         {
             _isPageFlipping = false;
             GuardPolarFlips();
+            FlippingChanged?.Invoke(false);
         }
         
         //for now expecting only 2 pair of papers

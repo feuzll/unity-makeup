@@ -3182,6 +3182,7 @@ GameObject:
   - component: {fileID: 1261152041}
   - component: {fileID: 1261152044}
   - component: {fileID: 1261152045}
+  - component: {fileID: 1261152046}
   m_Layer: 5
   m_Name: BookPages
   m_TagString: Untagged
@@ -3352,6 +3353,20 @@ MonoBehaviour:
   _book: {fileID: 1261152044}
   _nextButton: {fileID: 1441164158}
   _prevButton: {fileID: 1144140983}
+--- !u!114 &1261152046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261152038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e87e9ab7694125818c4464dbf512b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookPagesInteractables
+  _book: {fileID: 1261152044}
+  _interactables: []
 --- !u!1 &1320824821
 GameObject:
   m_ObjectHideFlags: 0
