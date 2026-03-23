@@ -31,6 +31,7 @@ namespace abc.Game.Unity
                 l.Clicked += OnLipstickClicked;
 
             _dragArea.DragEnded += OnDragEnded;
+            _faceZone.ClickedOnFace    += OnFaceClicked;
         }
 
         private void OnDestroy()
@@ -39,8 +40,22 @@ namespace abc.Game.Unity
                 l.Clicked -= OnLipstickClicked;
 
             _dragArea.DragEnded -= OnDragEnded;
+            _faceZone.ClickedOnFace    -= OnFaceClicked;
         }
 
+        private void OnFaceClicked()
+        {
+            if (_held is null) return;
+            StartApplySequence(_held);
+        }
+        
+        private void OnDragEnded(Vector2 screenPos)
+        {
+            if (_held is null) return;
+            if (!_faceZone.ContainsScreenPoint(screenPos)) return;
+            StartApplySequence(_held);
+        }
+        
         // ── Pickup ────────────────────────────────────────────────────────────
 
         private void OnLipstickClicked(Lipstick lipstick)
@@ -70,15 +85,10 @@ namespace abc.Game.Unity
 
         // ── Application ───────────────────────────────────────────────────────
 
-        private void OnDragEnded(Vector2 screenPos)
+        private void StartApplySequence(Lipstick lipstick)
         {
-            if (_held is null) return;
-            if (!_faceZone.ContainsScreenPoint(screenPos)) return;
-
             new SetHandBusyContext(_hand.Data, true).Execute();
             
-            var lipstick = _held;
-
             if (!UISpaceUtil.RectWorldToHandLocal(
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceLocalPos)) return;
