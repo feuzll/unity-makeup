@@ -84,9 +84,9 @@ namespace abc.Game.Unity
             new SetHandBusyContext(_hand.Data, true).Execute();
 
             Sequence.Create()
-                .Chain(_hand.TweenToAnchored(pickupTarget, _pickupTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget))
                 .ChainCallback(() => GrabLipstick(lipstick))
-                .Chain(_hand.TweenToAnchored(readyPosition, _pickupTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget, readyPosition))
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
@@ -112,12 +112,15 @@ namespace abc.Game.Unity
                     lipstick.ShelfWorldPosition, _hand, _canvas,
                     out var shelfHandLocal)) return;
 
+            var faceTarget   = faceLocalPos + _lipsOffset;
+            var returnTarget = shelfHandLocal - _gripOffset;
+
             Sequence.Create()
-                .Chain(_hand.TweenToAnchored(faceLocalPos + _lipsOffset, _applyTweenDuration))
+                .Chain(_hand.TweenToAnchored(faceTarget))
                 .Chain(Tween.ShakeLocalPosition(_handRect,
                     new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
-                .ChainCallback(() => RaiseApplyLipstickContext(lipstick))
-                .Chain(_hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration))
+                .ChainCallback(() => new ApplyLipstickContext(_character.Data, lipstick.Index))
+                .Chain(_hand.TweenToAnchored(faceTarget, returnTarget))
                 .ChainCallback(() => ReturnLipstick(lipstick))
                 .Chain(_hand.TweenToRest())
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
