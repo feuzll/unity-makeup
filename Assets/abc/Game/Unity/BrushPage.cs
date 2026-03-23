@@ -35,9 +35,11 @@ namespace abc.Game.Unity
         [SerializeField] private Vector2 _colorPickOffset  = new Vector2(0, -130f); // eyes/blush placement
 
         private BrushColorPicker? _pendingSquare; // selected before brush is grabbed
-
+        private RectTransform _handRect;
+        
         private void Start()
         {
+            _handRect = _hand.GetComponent<RectTransform>();
             foreach (var sq in _colorSquares)
                 sq.Clicked += OnColorSquareClicked;
 
@@ -93,11 +95,15 @@ namespace abc.Game.Unity
                             var c     = square.Color; // UnityEngine.Color
                             var brushColor = new BrushColor(c.r, c.g, c.b, c.a);
                             new ColorBrushContext(_brush.Data, brushColor).Execute();
-
-                            // 4. move to ready position
-                            _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
-                                .OnComplete(() =>
-                                    new SetHandBusyContext(_hand.Data, false).Execute());
+                            // 4. shake
+                            PrimeTween.Tween.ShakeLocalPosition(
+                                    _handRect,
+                                    strength: new Vector3(_shakeStrength, 0f, 0f),
+                                    _shakeDuration)
+                                .OnComplete(() => //5. 
+                                    _hand.TweenToAnchored(readyPosition, _pickupTweenDuration)
+                                        .OnComplete(() =>
+                                            new SetHandBusyContext(_hand.Data, false).Execute()));
                         });
                 });
         }
