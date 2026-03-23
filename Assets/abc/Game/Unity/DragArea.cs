@@ -13,6 +13,7 @@ namespace abc.Game.Unity
         public class DragArea : MonoBehaviour
         {
             [SerializeField] private Hand _hand;
+            [SerializeField] private ParticlePlayer _particles;
             [SerializeField] private Canvas        _canvas;
             [Tooltip("Pixels of movement before press is treated as drag, not a tap")]
             [SerializeField] private float _tapThreshold = 10f;
@@ -43,6 +44,7 @@ namespace abc.Game.Unity
                 {
                     _pressPosition = pos;
                     _isTracking    = true;
+                    FireParticles(pos);
                 }
 
                 if (!_isTracking) return;
@@ -72,6 +74,7 @@ namespace abc.Game.Unity
                     case TouchPhase.Began when IsInsideBounds(touch.position):
                         _pressPosition = touch.position;
                         _isTracking    = true;
+                        FireParticles(touch.position);
                         break;
 
                     case TouchPhase.Moved when _isTracking:
@@ -89,6 +92,17 @@ namespace abc.Game.Unity
                         _isTracking = false;
                         break;
                 }
+            }
+            
+            private void FireParticles(Vector2 screenPoint)
+            {
+                var parentRect = (RectTransform)_hand.transform.parent;
+                var cam        = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                    ? null : _canvas.worldCamera;
+
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                        parentRect, screenPoint, cam, out var localPoint))
+                    _particles.PlayAt(localPoint);
             }
             
             private void TryFireMove(Vector2 screenPoint)
