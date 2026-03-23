@@ -27,6 +27,12 @@ namespace abc.Game.Model
                 _character = character;
             }
 
+            public void RestoreAcne()
+            {
+                _character._hasAcne = true;
+                _character.SkinChanged?.Invoke();
+            }
+            
             public void ClearAcne()
             {
                 _character._hasAcne = false;
