@@ -2718,6 +2718,7 @@ GameObject:
   - component: {fileID: 1144140984}
   - component: {fileID: 1144140983}
   - component: {fileID: 1144140985}
+  - component: {fileID: 1144140986}
   m_Layer: 5
   m_Name: BackBookPageButton
   m_TagString: Untagged
@@ -2825,19 +2826,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1144140983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1261152044}
-        m_TargetAssemblyTypeName: abc.Game.Unity.SelfRepeatingBookProAdapter, Assembly-CSharp
-        m_MethodName: FlipLeftPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1144140986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144140981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3271c0987b24d8dba517db25d71cef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButton
+  _book: {fileID: 1261152044}
+  _direction: 1
 --- !u!1 &1166695281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 124268440616660921, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
@@ -3178,6 +3181,7 @@ GameObject:
   - component: {fileID: 1261152040}
   - component: {fileID: 1261152041}
   - component: {fileID: 1261152044}
+  - component: {fileID: 1261152045}
   m_Layer: 5
   m_Name: BookPages
   m_TagString: Untagged
@@ -3332,6 +3336,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.SelfRepeatingBookProAdapter
   book: {fileID: 1261152040}
   pageFlipTime: 1
+--- !u!114 &1261152045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261152038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daac1b4296fc4b2d8c3a51b82b9ed17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButtons
+  _hand: {fileID: 331070170}
+  _book: {fileID: 1261152044}
+  _nextButton: {fileID: 1441164158}
+  _prevButton: {fileID: 1144140983}
 --- !u!1 &1320824821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,6 +4413,7 @@ GameObject:
   - component: {fileID: 1441164159}
   - component: {fileID: 1441164158}
   - component: {fileID: 1441164160}
+  - component: {fileID: 1441164161}
   m_Layer: 5
   m_Name: NextBookPageButton
   m_TagString: Untagged
@@ -4500,19 +4521,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1441164158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1261152044}
-        m_TargetAssemblyTypeName: abc.Game.Unity.SelfRepeatingBookProAdapter, Assembly-CSharp
-        m_MethodName: FlipRightPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1441164161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441164156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3271c0987b24d8dba517db25d71cef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButton
+  _book: {fileID: 1261152044}
+  _direction: 0
 --- !u!1 &1536625087
 GameObject:
   m_ObjectHideFlags: 0
