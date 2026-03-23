@@ -35,11 +35,13 @@ namespace abc.Game.Unity
         private Vector2 _shelfAnchoredPosition; // recorded on Start, never changes
         private Vector3 _shelfWorldPosition;
         private Transform _shelfParent;
+        private RectTransform _handRect;
 
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
             Data.StateChanged += OnStateChanged;
+            _handRect = _hand.GetComponent<RectTransform>();
         }
 
         private void Start()
@@ -133,7 +135,7 @@ namespace abc.Game.Unity
                 {
                     // 2. Shake
                     PrimeTween.Tween.ShakeLocalPosition(
-                            _hand.GetComponent<RectTransform>(),
+                            _handRect,
                             strength: new Vector3(_shakeStrength, _shakeStrength), _shakeDuration)
                         .OnComplete(() =>
                         {
