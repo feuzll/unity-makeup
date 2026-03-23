@@ -1527,6 +1527,8 @@ MonoBehaviour:
   _followDuration: 0.5
   _followEase: 6
   _returnToRestDuration: 1
+  _moveSpeed: 800
+  _returnToRestSpeed: 800
 --- !u!223 &331070171
 Canvas:
   m_ObjectHideFlags: 0

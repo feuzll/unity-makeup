@@ -71,15 +71,17 @@ namespace abc.Game.Unity
             if (!UISpaceUtil.RectWorldToHandLocal(square.Rect, _hand, _canvas, out var squareHandLocal)) return;
 
             var pickupTarget  = brushHandLocal - _gripOffset;
+            var colorTarget   = squareHandLocal + _colorPickOffset;
             var readyPosition = Vector2.Lerp(squareHandLocal, faceHandLocal, 0.5f);
 
             Sequence.Create()
-                .Chain(Tween.UIAnchoredPosition(_handRect, pickupTarget, _pickupTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget))
                 .ChainCallback(() => GrabBrush(square))
-                .Chain(Tween.UIAnchoredPosition(_handRect, squareHandLocal + _colorPickOffset, _toColorTweenDuration))
+                .Chain(_hand.TweenToAnchored(pickupTarget, colorTarget))
                 .ChainCallback(() => ColorBrush(square))
-                .Chain(Tween.ShakeLocalPosition(_handRect, new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
-                .Chain(Tween.UIAnchoredPosition(_handRect, readyPosition, _pickupTweenDuration))
+                .Chain(Tween.ShakeLocalPosition(_handRect,
+                    new Vector3(_shakeStrength, 0f, 0f), _shakeDuration))
+                .Chain(_hand.TweenToAnchored(colorTarget, readyPosition))
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
         }
 
@@ -109,12 +111,16 @@ namespace abc.Game.Unity
             if (!UISpaceUtil.WorldToHandLocal(
                     _brush.ShelfWorldPosition, _hand, _canvas,
                     out var shelfHandLocal)) return;
+            
+            var faceTarget   = faceLocalPos + _faceOffset;
+            var returnTarget = shelfHandLocal - _gripOffset;
 
             Sequence.Create()
-                .Chain(Tween.UIAnchoredPosition(_handRect, faceLocalPos + _faceOffset, _applyTweenDuration))
-                .Chain(Tween.ShakeLocalPosition(_handRect, new Vector3(_shakeStrength, _shakeStrength, 0f), _shakeDuration))
+                .Chain(_hand.TweenToAnchored(faceTarget))
+                .Chain(Tween.ShakeLocalPosition(_handRect,
+                    new Vector3(_shakeStrength, _shakeStrength, 0f), _shakeDuration))
                 .ChainCallback(ApplyFaceColor)
-                .Chain(Tween.UIAnchoredPosition(_handRect, shelfHandLocal - _gripOffset, _returnDuration))
+                .Chain(_hand.TweenToAnchored(faceTarget, returnTarget))
                 .ChainCallback(ReturnBrush)
                 .Chain(_hand.TweenToRest())
                 .ChainCallback(() => new SetHandBusyContext(_hand.Data, false).Execute());
