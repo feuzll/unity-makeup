@@ -6821,10 +6821,13 @@ MonoBehaviour:
   - {fileID: 748687816}
   - {fileID: 500851527}
   - {fileID: 498766668}
-  _pickupTweenDuration: 1.5
+  _pickupTweenDuration: 0.5
   _applyTweenDuration: 2
   _returnDuration: 1.5
+  _shakeDuration: 1.5
+  _shakeStrength: 18
   _gripOffset: {x: -40, y: -20}
+  _lipsOffset: {x: 50, y: -150}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -18,10 +18,15 @@ namespace abc.Game.Unity
         [SerializeField] private float _pickupTweenDuration = 0.35f;
         [SerializeField] private float _applyTweenDuration  = 0.3f;
         [SerializeField] private float _returnDuration      = 0.3f;
+        [SerializeField] private float _shakeDuration       = 0.4f;
+        [SerializeField] private float _shakeStrength       = 18f;
 
         [Header("Grip")]
         [SerializeField] private Vector2 _gripOffset = new Vector2(0, -20f);
 
+        [Header("Lips")]
+        [SerializeField] private Vector2 _lipsOffset = new Vector2(0, -30f);
+        
         // currently held lipstick — null when hand is empty
         private Lipstick? _held;
 
@@ -93,27 +98,35 @@ namespace abc.Game.Unity
                     (RectTransform)_faceZone.transform, _hand, _canvas,
                     out var faceLocalPos)) return;
 
-            _hand.TweenToAnchored(faceLocalPos, _applyTweenDuration)
+            // offset downward toward lips
+            var lipsLocalPos = faceLocalPos + _lipsOffset;
+            
+            _hand.TweenToAnchored(lipsLocalPos, _applyTweenDuration)
                 .OnComplete(() =>
                 {
-                    new ApplyLipstickContext(_character.Data, lipstick.Index).Execute();
-
-                    if (!UISpaceUtil.WorldToHandLocal(
-                            lipstick.ShelfWorldPosition, _hand, _canvas,
-                            out var shelfHandLocal)) return;
-
-                    _hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration)
+                    // x-axis only shake
+                    PrimeTween.Tween.ShakeLocalPosition(
+                            _hand.GetComponent<RectTransform>(),
+                            strength: new Vector3(_shakeStrength, 0f, 0f),
+                            _shakeDuration)
                         .OnComplete(() =>
                         {
-                            new ReturnLipstickContext(_hand.Data, lipstick.Data).Execute();
-                            lipstick.Rect.SetParent(
-                                lipstick.ShelfParent, worldPositionStays: true);
-                            _held = null;
+                            new ApplyLipstickContext(_character.Data, lipstick.Index).Execute();
 
-                            _hand.TweenToRest()
+                            if (!UISpaceUtil.WorldToHandLocal(
+                                    lipstick.ShelfWorldPosition, _hand, _canvas,
+                                    out var shelfHandLocal)) return;
+
+                            _hand.TweenToAnchored(shelfHandLocal - _gripOffset, _returnDuration)
                                 .OnComplete(() =>
                                 {
-                                    new SetHandBusyContext(_hand.Data, false).Execute();
+                                    new ReturnLipstickContext(_hand.Data, lipstick.Data).Execute();
+                                    lipstick.Rect.SetParent(
+                                        lipstick.ShelfParent, worldPositionStays: true);
+                                    _held = null;
+
+                                    _hand.TweenToRest()
+                                        .OnComplete(() => { new SetHandBusyContext(_hand.Data, false).Execute(); });
                                 });
                         });
                 });
