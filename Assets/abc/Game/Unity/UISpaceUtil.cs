@@ -32,5 +32,17 @@ namespace abc.Game.Unity
             var screenPos = RectTransformUtility.WorldToScreenPoint(cam, worldPos);
             return hand.ScreenToLocal(screenPos, out result);
         }
+        
+        public static System.Drawing.Color ConvertUnityToSystemDrawingColor(UnityEngine.Color unityColor)
+        {
+            // Convert float values (0f to 1f) to byte values (0 to 255)
+            int r = Mathf.RoundToInt(unityColor.r * 255f);
+            int g = Mathf.RoundToInt(unityColor.g * 255f);
+            int b = Mathf.RoundToInt(unityColor.b * 255f);
+            int a = Mathf.RoundToInt(unityColor.a * 255f);
+
+            // Create the System.Drawing.Color object using the FromArgb method
+            return System.Drawing.Color.FromArgb(a, r, g, b);
+        }
     }
 }

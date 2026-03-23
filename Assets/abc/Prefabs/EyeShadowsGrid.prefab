@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5658437363210879982}
   - component: {fileID: 2954536735919540394}
   - component: {fileID: 1503009627845609165}
+  - component: {fileID: 1599391171460342738}
   m_Layer: 5
   m_Name: EyeShadow (2)
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1599391171460342738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264744142124022927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2990040419230147015
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +100,7 @@ GameObject:
   - component: {fileID: 5850232398994825643}
   - component: {fileID: 2611971971541827634}
   - component: {fileID: 539696725461423666}
+  - component: {fileID: 3092817022179815514}
   m_Layer: 5
   m_Name: EyeShadow (9)
   m_TagString: Untagged
@@ -150,6 +165,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3092817022179815514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990040419230147015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3456394933888909499
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +189,7 @@ GameObject:
   - component: {fileID: 7823475289007210638}
   - component: {fileID: 3860016137720114024}
   - component: {fileID: 2627042997716865920}
+  - component: {fileID: 6714103473751353583}
   m_Layer: 5
   m_Name: EyeShadow (8)
   m_TagString: Untagged
@@ -225,6 +254,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6714103473751353583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456394933888909499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3916131928176538445
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +278,7 @@ GameObject:
   - component: {fileID: 8711838629707750905}
   - component: {fileID: 7008150508105738751}
   - component: {fileID: 7885293723072644829}
+  - component: {fileID: 4865470066275862043}
   m_Layer: 5
   m_Name: EyeShadow (1)
   m_TagString: Untagged
@@ -300,6 +343,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4865470066275862043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916131928176538445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4353766894206805523
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +367,7 @@ GameObject:
   - component: {fileID: 470121771942352881}
   - component: {fileID: 2357868512986399505}
   - component: {fileID: 3510866530585993723}
+  - component: {fileID: 601552103309910269}
   m_Layer: 5
   m_Name: EyeShadow (3)
   m_TagString: Untagged
@@ -375,6 +432,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &601552103309910269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353766894206805523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4448279877243691963
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +456,7 @@ GameObject:
   - component: {fileID: 7520696298969936235}
   - component: {fileID: 7302616762206028138}
   - component: {fileID: 383006322443904528}
+  - component: {fileID: 4396576680679032138}
   m_Layer: 5
   m_Name: EyeShadowsGrid
   m_TagString: Untagged
@@ -458,6 +529,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!114 &4396576680679032138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448279877243691963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156464005a3642378ad52b46a67f80e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushPage
+  _hand: {fileID: 0}
+  _dragArea: {fileID: 0}
+  _character: {fileID: 0}
+  _faceZone: {fileID: 0}
+  _canvas: {fileID: 0}
+  _brush: {fileID: 0}
+  _colorSquares:
+  - {fileID: 4865470066275862043}
+  - {fileID: 1599391171460342738}
+  - {fileID: 601552103309910269}
+  - {fileID: 6986778154754141897}
+  - {fileID: 1670750610809147908}
+  - {fileID: 5296443403592491753}
+  - {fileID: 6252367019750468995}
+  - {fileID: 6714103473751353583}
+  - {fileID: 3092817022179815514}
+  _brushType: 0
+  _pickupTweenDuration: 0.5
+  _toColorTweenDuration: 0.5
+  _applyTweenDuration: 1.5
+  _returnDuration: 1.5
+  _shakeDuration: 1
+  _shakeStrength: 18
+  _gripOffset: {x: 0, y: -20}
+  _faceOffset: {x: 50, y: -100}
 --- !u!1 &6555126247060729077
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +577,7 @@ GameObject:
   - component: {fileID: 3166598223332468696}
   - component: {fileID: 1267955195911432970}
   - component: {fileID: 6341846032632142882}
+  - component: {fileID: 5296443403592491753}
   m_Layer: 5
   m_Name: EyeShadow (6)
   m_TagString: Untagged
@@ -533,6 +642,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5296443403592491753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555126247060729077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6827877957940246156
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +666,7 @@ GameObject:
   - component: {fileID: 5984870910060459686}
   - component: {fileID: 8744339030257574069}
   - component: {fileID: 1836591845201296066}
+  - component: {fileID: 1670750610809147908}
   m_Layer: 5
   m_Name: EyeShadow (5)
   m_TagString: Untagged
@@ -608,6 +731,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1670750610809147908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827877957940246156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8032813339893780210
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +755,7 @@ GameObject:
   - component: {fileID: 699594407212452656}
   - component: {fileID: 2103626477449268392}
   - component: {fileID: 7080925226900295305}
+  - component: {fileID: 6252367019750468995}
   m_Layer: 5
   m_Name: EyeShadow (7)
   m_TagString: Untagged
@@ -683,6 +820,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6252367019750468995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032813339893780210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &9159039271812091849
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +844,7 @@ GameObject:
   - component: {fileID: 1162831710505694081}
   - component: {fileID: 4211436334102892424}
   - component: {fileID: 7593288661272198424}
+  - component: {fileID: 6986778154754141897}
   m_Layer: 5
   m_Name: EyeShadow (4)
   m_TagString: Untagged
@@ -758,3 +909,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6986778154754141897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159039271812091849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b86dd1d591498c808c420917031feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BrushColorPicker
+  _fallbackColor: {r: 1, g: 1, b: 1, a: 1}
