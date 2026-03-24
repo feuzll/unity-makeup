@@ -90,6 +90,7 @@ namespace abc.Game.Unity
         private void OnDragEnded(Vector2 screenPos)
         {
             if (_brush.Data.State != Model.Brush.BrushState.Held) return;
+            if (_hand.Data.IsBusy) return;
             if (!_faceZone.ContainsScreenPoint(screenPos)) return;
             StartApplySequence();
         }
@@ -97,6 +98,7 @@ namespace abc.Game.Unity
         private void OnFaceClicked()
         {
             if (_brush.Data.State != Model.Brush.BrushState.Held) return;
+            if (_hand.Data.IsBusy) return;
             StartApplySequence();
         }
 
