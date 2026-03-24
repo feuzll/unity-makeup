@@ -1,6 +1,8 @@
 # Makeup Room — Unity 2D Prototype
 
-An experimental WIP project of makeup mechanics for Android in a scope of learning **DCI (Data-Context-Interaction)** pattern application in a game engine
+An experimental WIP project exploring makeup mechanics for Android,
+built to try and learn **DCI (Data-Context-Interaction)** pattern application
+in a game engine.
 
 The main intent is to make game features visible at the file-structure
 level, keep code engine-agnostic, and maintain the following layout:
@@ -10,7 +12,9 @@ level, keep code engine-agnostic, and maintain the following layout:
 
 Oh, and to try DI with some project-validation at the end.
 
-/// Video place
+
+https://github.com/user-attachments/assets/466c9741-6523-4cfa-94af-85defc2e7a36
+
 
 ## Tech-stack and notes
 - Unity 6000.3.7f1
