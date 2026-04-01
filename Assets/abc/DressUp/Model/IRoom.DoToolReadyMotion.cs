@@ -31,25 +31,16 @@ namespace abc.DressUp.Model
             }
             return readyWorld;
         }
-        
-        public Sequence DoToolReadyMotion(Interaction.ExecutionToken token,
-            ITool tool, IHand hand)
+
+        Sequence IToolReadyMotionBuilder.BuildAndRunFor(Interaction.ExecutionToken token, ITool tool)
         {
             var readyWorld = GetReadyWorld(tool);
             
-            return Sequence.Create().Chain(hand.DoBusyMoveToScreenXY(token, readyWorld));
-        }
-
-        public Sequence DoToolReadyMotion(Interaction.ExecutionToken token,
-            IBrush brush, IHand hand, RectTransform colorSource)
-        {
-            if (AvailableTools.TryGetValue(brush, out var finalPlaceType))
-                throw new ArgumentException(brush.ToString());
-            
-            var readyWorld = GetReadyWorld(brush);
-            
-            return Sequence.Create().Chain(DoBrushColor(token, brush, hand, colorSource))
-                .Chain(hand.DoBusyMoveToScreenXY(token, readyWorld));
+            if (tool is IBrush brush)
+                return Sequence.Create().Chain(DoBrushColor(token, brush, Hand))
+                    .Chain(Hand.DoBusyMoveToScreenXY(token, readyWorld));
+            else
+                return Sequence.Create().Chain(Hand.DoBusyMoveToScreenXY(token, readyWorld));
         }
     }
 }

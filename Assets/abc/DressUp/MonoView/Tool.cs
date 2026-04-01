@@ -11,10 +11,10 @@ namespace abc.DressUp.View
     [RequireComponent(typeof(Image))]
     public class Tool : MonoBehaviour, ITool, IPointerClickHandler
     {
-        
         [SerializeField] private ToolSlot initialContainer;
         [SerializeField] private ShakeSettings applySettings;
         [SerializeField] private Canvas screenCanvas;
+        [SerializeField] protected ICharacter.ViewState targetCharacterView;
         
         private ITool.IContainer _container;
         private RectTransform _rectTransform;
@@ -40,9 +40,22 @@ namespace abc.DressUp.View
 
         public Vector2 LocalContainerPosition => _rectTransform.anchoredPosition;
 
-        public event Action OnInteract;
+        public ShakeSettings ApplySettings => applySettings;
+        
 
-        private void Awake()
+        ICharacter.ViewState ITool.TargetCharacterView
+        {
+            get => targetCharacterView;
+        }
+        
+
+        public event Action OnInteract;
+        void ITool.RaiseOnInteract()
+        {
+            OnInteract?.Invoke();
+        }
+
+        protected void Awake()
         {
             FillReferences();
             if (initialContainer == null) initialContainer = GetComponentInParent<ToolSlot>();
