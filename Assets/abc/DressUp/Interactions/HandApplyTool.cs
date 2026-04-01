@@ -8,6 +8,8 @@ namespace abc.DressUp.Interactions
     {
         public HandApplyTool(IHand hand, ITool tool, IFaceZone face, ICharacter character)
         {
+            if (hand.IsBusy) return;
+            
             var faceWorld = face.Rect.position;
             var cam = face.ParentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? 
                 null : face.ParentCanvas.worldCamera;

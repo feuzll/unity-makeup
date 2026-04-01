@@ -1234,6 +1234,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1359029891}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1359029893}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
 --- !u!1 &278113616 stripped
 GameObject:
@@ -1838,11 +1841,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5105595af75c4e4e9f4b0432e3880ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.View.Hand
-  moveSpeed: 0
+  moveSpeed: 400
   rectTransform: {fileID: 331070167}
   parentRect: {fileID: 763392794}
   screenCanvas: {fileID: 331070171}
-  dragEase: 0
+  dragEase: 6
   toolLocalBindPosition: {x: 0, y: 0}
 --- !u!1 &364106192 stripped
 GameObject:
@@ -2537,6 +2540,7 @@ GameObject:
   - component: {fileID: 624077881}
   - component: {fileID: 624077883}
   - component: {fileID: 624077884}
+  - component: {fileID: 624077885}
   m_Layer: 5
   m_Name: FaceArea
   m_TagString: Untagged
@@ -2622,11 +2626,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624077879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e3bc0a3204a9abd12b77e4a0df0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.FaceZone
+--- !u!114 &624077885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624077879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507bacd3216c49b89fe4cd644a19a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.FaceZone
+  parentCanvas: {fileID: 1656463181}
 --- !u!1 &664724960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2792,7 @@ GameObject:
   - component: {fileID: 763392798}
   - component: {fileID: 763392799}
   - component: {fileID: 763392800}
+  - component: {fileID: 763392801}
   m_Layer: 5
   m_Name: WholeScreenArea
   m_TagString: Untagged
@@ -2847,7 +2865,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763392793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c186512ab1d14110a9657bdca4d97f60, type: 3}
   m_Name: 
@@ -2883,6 +2901,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &763392801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763392793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb9cf0cdc52480cbe40baef71bf8004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.HandDragArea
+  _hand: {fileID: 331070173}
 --- !u!1 &766189392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -838506140686686977, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
@@ -4766,7 +4797,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359029889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43c898d412454bfdbfa777e4d0e4e517, type: 3}
   m_Name: 
@@ -4799,6 +4830,19 @@ MonoBehaviour:
   - {fileID: 1246576431}
   - {fileID: 2095184386}
   - {fileID: 1380863423}
+--- !u!114 &1359029893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359029889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376b5c4e6e86408ca7d9bf6356e2ff05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Character
+  acne: {fileID: 1877266789}
 --- !u!1 &1380863423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8348163945092248339, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
@@ -6088,7 +6132,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &1656463180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6194,6 +6238,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f817f25468e4d0ab259de6147689642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.View.Room
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1838465412}
+    - {fileID: 624077885}
+    - {fileID: 1359029893}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tools
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[abc.DressUp.Entities.ITool,
+        Assembly-CSharp],[abc.DressUp.Entities.IRoom+HandToolReadyPlace, Assembly-CSharp]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[abc.DressUp.Entities.ITool,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: faceZone
+      Entry: 10
+      Data: 1
+    - Name: character
+      Entry: 10
+      Data: 2
   hand: {fileID: 331070173}
   brushPages: []
 --- !u!1 &1683277177
@@ -6890,6 +6985,7 @@ GameObject:
   - component: {fileID: 1838465409}
   - component: {fileID: 1838465410}
   - component: {fileID: 1838465411}
+  - component: {fileID: 1838465412}
   m_Layer: 5
   m_Name: Cream
   m_TagString: Untagged
@@ -7025,7 +7121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838465404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9889629b0159421a9610c161de255a19, type: 3}
   m_Name: 
@@ -7052,6 +7148,43 @@ MonoBehaviour:
     useUnscaledTime: 0
     _useFixedUpdate: 0
     _updateType: 0
+--- !u!114 &1838465412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838465404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7e3d76e6ef419fbfe3fd77b2b9db5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
+  initialContainer: {fileID: 1969664907}
+  applySettings:
+    strength: {x: 40, y: 40, z: 0}
+    duration: 3
+    frequency: 10
+    enableFalloff: 0
+    falloffEase: 0
+    strengthOverTime:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    asymmetry: 0
+    easeBetweenShakes: 0
+    cycles: 1
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    _useFixedUpdate: 0
+    _updateType: 0
+  screenCanvas: {fileID: 1656463181}
+  targetCharacterView:
+    type: 3
+    value: 0
 --- !u!1 &1877266789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6968055815780996578, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
@@ -7206,6 +7339,7 @@ GameObject:
   - component: {fileID: 1969664905}
   - component: {fileID: 1969664904}
   - component: {fileID: 1969664906}
+  - component: {fileID: 1969664907}
   m_Layer: 5
   m_Name: ShelfLeftImage
   m_TagString: Untagged
@@ -7278,11 +7412,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969664902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e16fbd0773934efda9c52271314a0b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.ToolSlot
+--- !u!114 &1969664907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969664902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec37709e68434d4cb644256fbca62836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.ToolSlot
 --- !u!1 &2020250444
 GameObject:
   m_ObjectHideFlags: 0

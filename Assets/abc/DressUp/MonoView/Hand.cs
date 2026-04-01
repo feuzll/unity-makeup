@@ -1,4 +1,6 @@
 #nullable enable
+using System;
+using System.Collections;
 using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
@@ -16,7 +18,7 @@ namespace abc.DressUp.MonoView
         [SerializeField] private Vector2 toolLocalBindPosition = Vector2.zero;
         private Vector3 _worldRestPosition;
         private bool _canDrag;
-        private float _dragSpeed;
+        private Tween? _dragTween = null;
 
         public Vector3 WorldRestPosition => _worldRestPosition;
 
@@ -30,6 +32,11 @@ namespace abc.DressUp.MonoView
         private void Awake()
         {
             TryFillReferences();
+        }
+
+        private IEnumerator Start()
+        {
+            yield return null; //wait UI to build
             _worldRestPosition = parentRect!.TransformPoint(
                 rectTransform!.anchoredPosition);
         }
@@ -41,7 +48,7 @@ namespace abc.DressUp.MonoView
 
         RectTransform IHand.Rect => rectTransform!;
 
-        float IDraggable.DragSpeed => _dragSpeed;
+        float IDraggable.DragSpeed => moveSpeed;
 
         RectTransform IDraggable.Rect => rectTransform!;
         RectTransform ITool.IContainer.Rect => rectTransform!;
@@ -54,10 +61,10 @@ namespace abc.DressUp.MonoView
 
         Canvas IDraggable.ScreenCanvas => screenCanvas!;
 
-        Tween? IDraggable.DragTween { get; } = null;
+        Tween? IDraggable.DragTween => _dragTween;
 
         bool IDraggable.CanDrag => 
-            (!(this as IHand).IsBusy) && ((this as ITool.IContainer).HeldTool is not null);
+            !((this as IHand).IsBusy) && ((this as ITool.IContainer).HeldTool is not null);
 
         RectTransform? IDraggable.ParentRect => parentRect;
 
@@ -65,7 +72,7 @@ namespace abc.DressUp.MonoView
 
         void IDraggable.SetDragTween(Tween tween)
         {
-            throw new System.NotImplementedException();
+            _dragTween = tween;
         }
 
         Ease IDraggable.DragEase => dragEase;

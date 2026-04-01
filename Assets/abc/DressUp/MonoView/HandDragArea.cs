@@ -7,7 +7,7 @@ namespace abc.DressUp.MonoView
 {
     public class HandDragArea : MonoBehaviour, IDragHandler, IPointerDownHandler
     {
-        [SerializeField] private IDraggable _hand;
+        [SerializeField] private Hand _hand;
         
         public void OnDrag(PointerEventData eventData)
         {

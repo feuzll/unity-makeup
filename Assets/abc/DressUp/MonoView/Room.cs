@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using abc.DressUp.Interactions;
 using abc.DressUp.Entities;
 using PrimeTween;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace abc.DressUp.MonoView
 {
-    public class Room : MonoBehaviour, IRoom
+    public class Room : SerializedMonoBehaviour, IRoom
     {
         [SerializeReference] private Hand? hand;
-        [SerializeField] private Dictionary<ITool, IRoom.HandToolReadyPlace> tools;
+        [OdinSerialize] private Dictionary<ITool, IRoom.HandToolReadyPlace> tools;
         [SerializeField] private IFaceZone faceZone;
         [SerializeField] private List<BrushPage>  brushPages = new();
+        [SerializeField] ICharacter character;
         private IBrush.IColorSource _pendingBrushBrushColor;
 
         Dictionary<ITool, IRoom.HandToolReadyPlace> IRoom.AvailableTools => tools;
@@ -42,6 +45,11 @@ namespace abc.DressUp.MonoView
                 tool.OnInteract += () =>
                 {
                     new HandTakesTool(hand, tool, this, out _);
+                };
+
+                faceZone.OnInteract += () =>
+                {
+                    new HandApplyTool(hand, tool, faceZone, character);
                 };
             }
         }

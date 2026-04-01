@@ -9,7 +9,7 @@ namespace abc.DressUp.Entities
     {
         private Vector2 GetReadyWorld(ITool tool)
         {
-            if (AvailableTools.TryGetValue(tool, out var finalPlaceType))
+            if (!AvailableTools.TryGetValue(tool, out var finalPlaceType))
                 throw new ArgumentException(tool.ToString());
             
             Vector2 readyWorld;
