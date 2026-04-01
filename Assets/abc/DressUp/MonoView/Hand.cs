@@ -1,9 +1,9 @@
 #nullable enable
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     [RequireComponent(typeof(RectTransform))]
     public class Hand : MonoBehaviour, IHand

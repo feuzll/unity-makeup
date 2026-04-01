@@ -1,10 +1,10 @@
 using System;
 using abc.DressUp.Interactions;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     public class Brush : Tool, IBrush
     {

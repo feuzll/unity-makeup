@@ -1,11 +1,11 @@
 #nullable enable
 using System;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     [RequireComponent(typeof(Image))]
     public class BrushColorSource : MonoBehaviour, 

@@ -2,7 +2,7 @@
 using abc.DressUp.Interactions;
 using UnityEngine;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public partial interface ITool
     {

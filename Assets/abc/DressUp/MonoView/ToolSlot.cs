@@ -1,8 +1,8 @@
 using System;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using UnityEngine;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     [RequireComponent(typeof(RectTransform))]
     public class ToolSlot : MonoBehaviour, ITool.IContainer

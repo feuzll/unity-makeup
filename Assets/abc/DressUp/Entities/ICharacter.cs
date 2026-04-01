@@ -1,6 +1,6 @@
 using abc.DressUp.Interactions;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public partial interface ICharacter
     {

@@ -4,7 +4,7 @@ using abc.DressUp.Interactions;
 using PrimeTween;
 using UnityEngine;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public partial interface IBrush : ITool
     {

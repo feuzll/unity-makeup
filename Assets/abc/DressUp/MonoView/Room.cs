@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using abc.DressUp.Interactions;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     public class Room : MonoBehaviour, IRoom
     {

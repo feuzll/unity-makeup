@@ -1,9 +1,9 @@
 using abc.DressUp.Interactions;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     public class HandDragArea : MonoBehaviour, IDragHandler, IPointerDownHandler
     {

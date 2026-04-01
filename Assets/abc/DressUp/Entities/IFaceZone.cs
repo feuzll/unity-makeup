@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public interface IFaceZone
     {

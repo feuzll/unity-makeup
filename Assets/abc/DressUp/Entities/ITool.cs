@@ -3,7 +3,7 @@ using System;
 using PrimeTween;
 using UnityEngine;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public partial interface ITool
     {

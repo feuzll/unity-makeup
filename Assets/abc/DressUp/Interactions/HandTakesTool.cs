@@ -1,4 +1,4 @@
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
 

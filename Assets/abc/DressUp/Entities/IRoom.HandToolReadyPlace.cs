@@ -1,4 +1,4 @@
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public partial interface IRoom
     {

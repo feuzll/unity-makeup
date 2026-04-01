@@ -1,7 +1,7 @@
 using abc.DressUp.Interactions;
 using PrimeTween;
 
-namespace abc.DressUp.Model
+namespace abc.DressUp.Entities
 {
     public interface IToolReadyMotionBuilder
     {

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using abc.DressUp.Model;
+using abc.DressUp.Entities;
 using UnityEngine;
 
-namespace abc.DressUp.View
+namespace abc.DressUp.MonoView
 {
     public class BrushPage : MonoBehaviour, IBrush.IPage
     {
