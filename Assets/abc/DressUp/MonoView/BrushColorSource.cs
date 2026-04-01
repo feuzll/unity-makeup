@@ -77,6 +77,7 @@ namespace abc.DressUp.MonoView
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            Debug.Log("clicked brush source");
             Clicked?.Invoke();
         }
         

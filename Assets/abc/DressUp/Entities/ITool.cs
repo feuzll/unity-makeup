@@ -10,7 +10,7 @@ namespace abc.DressUp.Entities
         public Canvas ScreenCanvas { get; }
         public ITool.IContainer InitialContainer { get; }
         public IContainer Container { get; protected set; }
-        public Vector2 LocalContainerPosition { get; }
+        public Vector2 LocalInitialContainerPosition { get; }
         public ShakeSettings ApplySettings { get; }
         public ICharacter.ViewState TargetCharacterView { get; }
         public event Action? OnInteract;

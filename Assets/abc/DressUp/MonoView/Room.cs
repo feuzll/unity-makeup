@@ -17,6 +17,7 @@ namespace abc.DressUp.MonoView
         [SerializeField] private IFaceZone faceZone;
         [SerializeField] private List<BrushPage>  brushPages = new();
         [SerializeField] ICharacter character;
+        [SerializeField] HandDragArea handDragArea;
         private IBrush.IColorSource _pendingBrushBrushColor;
 
         Dictionary<ITool, IRoom.HandToolReadyPlace> IRoom.AvailableTools => tools;
@@ -44,14 +45,17 @@ namespace abc.DressUp.MonoView
             {
                 tool.OnInteract += () =>
                 {
-                    new HandTakesTool(hand, tool, this, out _);
-                };
-
-                faceZone.OnInteract += () =>
-                {
-                    new HandApplyTool(hand, tool, faceZone, character);
+                    new HandTakesTool(hand, tool, this, () =>
+                    {
+                        handDragArea.SetRaycastTarget(true);
+                    });
                 };
             }
+            faceZone.OnInteract += () =>
+            {
+                handDragArea.SetRaycastTarget(false);
+                new HandApplyTool(hand, faceZone, character);
+            };
         }
     }
 }

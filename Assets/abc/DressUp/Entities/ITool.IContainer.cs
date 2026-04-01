@@ -10,7 +10,6 @@ namespace abc.DressUp.Entities
         {
             public RectTransform Rect { get; }
             public ITool? HeldTool { get;}
-            public Vector2 ToolLocalBindPosition { get; }
 
             protected void SetHeldTool(ITool? tool);
 

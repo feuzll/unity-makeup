@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace abc.DressUp.MonoView
         
         private ITool.IContainer _container;
         private RectTransform _rectTransform;
+        private Vector2 _localContainerPosition;
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -38,7 +40,7 @@ namespace abc.DressUp.MonoView
             }
         }
 
-        public Vector2 LocalContainerPosition => _rectTransform.anchoredPosition;
+        public Vector2 LocalInitialContainerPosition => _localContainerPosition;
 
         public ShakeSettings ApplySettings => applySettings;
         
@@ -60,6 +62,14 @@ namespace abc.DressUp.MonoView
             FillReferences();
             if (initialContainer == null) initialContainer = GetComponentInParent<ToolSlot>();
             _container = initialContainer;
+            _localContainerPosition = _rectTransform.localPosition;
+        }
+
+        [ContextMenu(nameof(LogAnchored))]
+        public void LogAnchored()
+        {
+            Debug.Log($"{_rectTransform.anchoredPosition} = anchoredPos");
+            Debug.Log($"{_rectTransform.localPosition} = localPos");
         }
 
         private void OnValidate()

@@ -17,12 +17,11 @@ namespace abc.DressUp.MonoView
         {
             _rect = GetComponent<RectTransform>();
             _heldTool = GetComponentInChildren<ITool>();
-            _toolBindPosition = _heldTool.LocalContainerPosition;
+            _toolBindPosition = _heldTool.LocalInitialContainerPosition;
         }
 
         ITool ITool.IContainer.HeldTool => _heldTool;
 
-        public Vector2 ToolLocalBindPosition => _toolBindPosition;
 
         void ITool.IContainer.SetHeldTool(ITool tool)
         {

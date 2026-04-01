@@ -6,9 +6,12 @@ namespace abc.DressUp.Interactions
 {
     public class HandApplyTool : Interaction
     {
-        public HandApplyTool(IHand hand, ITool tool, IFaceZone face, ICharacter character)
+        public HandApplyTool(IHand hand, IFaceZone face, ICharacter character)
         {
             if (hand.IsBusy) return;
+            if (hand.HeldTool is null) return;
+            
+            var tool = hand.HeldTool;
             
             var faceWorld = face.Rect.position;
             var cam = face.ParentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? 
@@ -16,7 +19,7 @@ namespace abc.DressUp.Interactions
             var faceScreenXY = RectTransformUtility.WorldToScreenPoint(cam, faceWorld);
             
             var toolReturnWorld =
-                tool.InitialContainer.Rect.TransformPoint(tool.InitialContainer.ToolLocalBindPosition);
+                tool.InitialContainer.Rect.TransformPoint(tool.LocalInitialContainerPosition);
             cam = tool.ScreenCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? 
                 null : tool.ScreenCanvas.worldCamera;
             var toolReturnScreenXY =  RectTransformUtility.WorldToScreenPoint(cam, toolReturnWorld);

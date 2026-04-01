@@ -10,15 +10,13 @@ namespace abc.DressUp.Entities
         public Sequence DoBrushColor(Interaction.ExecutionToken token,
             IBrush brush, IHand hand)
         {
-            if (brush.PendingColorSource is null)
-                throw new ArgumentNullException();
+            brush.BindTo(token, PendingBrushColor);
             var colorSourceWorld = brush.PendingColorSource!.Rect.position;
             var cam           = brush.ScreenCanvas.renderMode == RenderMode.ScreenSpaceOverlay
                 ? null : brush.ScreenCanvas.worldCamera;
             var colorSourceScreenXY=
                 RectTransformUtility.WorldToScreenPoint(cam, colorSourceWorld);
             
-            brush.BindTo(token, PendingBrushColor);
             return Sequence.Create(hand.DoBusyMoveToScreenXY(token, colorSourceScreenXY))
                 .ChainCallback(() => brush.Color(token));
         }

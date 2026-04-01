@@ -54,8 +54,7 @@ namespace abc.DressUp.MonoView
         RectTransform ITool.IContainer.Rect => rectTransform!;
 
         public ITool? HeldTool { get; private set; }
-
-        public Vector2 ToolLocalBindPosition => toolLocalBindPosition;
+        
 
         bool IHand.IsBusy { get; set; } = false;
 

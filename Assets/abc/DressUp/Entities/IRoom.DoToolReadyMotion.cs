@@ -20,7 +20,7 @@ namespace abc.DressUp.Entities
             {
                 case HandToolReadyPlace.BetweenFaceAndSlot:
                     var slotWorld = 
-                        tool.InitialContainer.Rect.TransformPoint(tool.InitialContainer.ToolLocalBindPosition);
+                        tool.InitialContainer.Rect.TransformPoint(tool.LocalInitialContainerPosition);
                     readyWorld = Vector3.Lerp(slotWorld, faceWorld, 0.5f);
                     break;
                 case HandToolReadyPlace.BetweenFaceAndHandRest:
