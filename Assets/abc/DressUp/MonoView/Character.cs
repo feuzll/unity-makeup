@@ -10,6 +10,7 @@ namespace abc.DressUp.MonoView
     {
         [SerializeField] private GameObject acne;
         [SerializeField] private List<GameObject> eyeShadows;
+        [SerializeField] private List<GameObject> lips;
         
         public void ApplyViewState(Interaction.ExecutionToken token, ICharacter.ViewState viewState)
         {
@@ -17,6 +18,10 @@ namespace abc.DressUp.MonoView
             switch (viewState.type)
             {
                 case ICharacter.ViewState.Type.Lips:
+                    for (int i = 0; i < lips.Count; i++)
+                    {
+                        lips[i].SetActive(viewState.value == i);
+                    }
                     break;
                 case ICharacter.ViewState.Type.Eyes:
                     for (int i = 0; i < eyeShadows.Count; i++)

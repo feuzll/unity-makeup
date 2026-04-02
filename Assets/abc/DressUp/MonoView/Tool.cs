@@ -23,6 +23,7 @@ namespace abc.DressUp.MonoView
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            _localContainerPosition = _rectTransform.localPosition;
             OnInteract?.Invoke();
         }
 
@@ -54,15 +55,23 @@ namespace abc.DressUp.MonoView
         public event Action OnInteract;
         void ITool.RaiseOnInteract()
         {
+            _localContainerPosition = _rectTransform.localPosition;
             OnInteract?.Invoke();
         }
 
         protected void Awake()
         {
+            targetCharacterView.value = transform.GetSiblingIndex();
             FillReferences();
             if (initialContainer == null) initialContainer = GetComponentInParent<ToolSlot>();
             _container = initialContainer;
             _localContainerPosition = _rectTransform.localPosition;
+        }
+
+        protected IEnumerator Start()
+        {
+            if (TryGetComponent<UnpackFromRectParent>(out var unpacker))
+                yield return unpacker.Unpack();
         }
 
         [ContextMenu(nameof(LogAnchored))]
