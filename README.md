@@ -1,16 +1,6 @@
 # Makeup Room — Unity 2D Prototype
 
-An experimental WIP project exploring makeup mechanics for Android,
-built to try and learn **DCI (Data-Context-Interaction)** pattern application
-in a game engine.
-
-The main intent is to make game features visible at the file-structure
-level, keep code engine-agnostic, and maintain the following layout:
-- `Model/` — pure C# data classes with nested Roles controlling mutations
-- `Contexts/` — one file per user action, readable as a feature list
-- `Unity/` — thin MonoBehaviours that render model state and fire contexts
-
-Oh, and to try DI with some project-validation at the end.
+WIP more simple branch, target code in DressUp folder
 
 
 https://github.com/user-attachments/assets/466c9741-6523-4cfa-94af-85defc2e7a36
@@ -26,6 +16,7 @@ https://github.com/user-attachments/assets/466c9741-6523-4cfa-94af-85defc2e7a36
 - [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween) used for speed-based player hand animations + small separate UI tweens
 - [ParticleEffectForUGUI](https://github.com/mob-sakai/ParticleEffectForUGUI) (mob-sakai) for a uGUI particle effects
 - [Book - Page Curl Pro](https://assetstore.unity.com/packages/package/77222) (≥ 2.0) for a uGUI based animated book
+- [Odin Inspector](https://odininspector.com/) (≥ 4.0) for some dictionary serialization, inspector buttons, etc. 
 
 ## Download
 See [Releases](https://github.com/feuzll/unity-makeup-private/releases) for the latest stable and smallest APK.
