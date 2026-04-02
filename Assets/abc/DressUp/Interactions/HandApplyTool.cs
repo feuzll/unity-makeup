@@ -1,3 +1,5 @@
+#nullable enable
+using System;
 using abc.DressUp.Entities;
 using PrimeTween;
 using UnityEngine;
@@ -6,7 +8,7 @@ namespace abc.DressUp.Interactions
 {
     public class HandApplyTool : Interaction
     {
-        public HandApplyTool(IHand hand, IFaceZone face, ICharacter character)
+        public HandApplyTool(IHand hand, IFaceZone face, ICharacter character, Action? callback = null)
         {
             if (hand.IsBusy) return;
             if (hand.HeldTool is null) return;
@@ -32,7 +34,8 @@ namespace abc.DressUp.Interactions
                     character.ApplyViewState(Token, tool.TargetCharacterView))
                 .Chain(hand.DoBusyMoveToScreenXY(Token, toolReturnScreenXY))
                 .ChainCallback(() => tool.InitialContainer.TakeTool(Token, tool))
-                .Chain(hand.DoReturnToRest(Token));
+                .Chain(hand.DoReturnToRest(Token))
+                .ChainCallback(target:this, target => callback?.Invoke());
         }
     }
 }

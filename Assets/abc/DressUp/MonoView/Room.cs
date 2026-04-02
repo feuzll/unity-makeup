@@ -18,6 +18,12 @@ namespace abc.DressUp.MonoView
         [SerializeField] private List<BrushPage>  brushPages = new();
         [SerializeField] ICharacter character;
         [SerializeField] HandDragArea handDragArea;
+
+        [Header("Book")]
+        [SerializeField] private SelfRepeatingBookProAdapter _book;
+        [SerializeField] private BookFlipButton _nextButton;
+        [SerializeField] private BookFlipButton _prevButton;
+        
         private IBrush.IColorSource _pendingBrushBrushColor;
 
         Dictionary<ITool, IRoom.HandToolReadyPlace> IRoom.AvailableTools => tools;
@@ -45,6 +51,8 @@ namespace abc.DressUp.MonoView
             {
                 tool.OnInteract += () =>
                 {
+                    _nextButton.gameObject.SetActive(false);
+                    _prevButton.gameObject.SetActive(false);
                     new HandTakesTool(hand, tool, this, () =>
                     {
                         handDragArea.SetRaycastTarget(true);
@@ -54,7 +62,11 @@ namespace abc.DressUp.MonoView
             faceZone.OnInteract += () =>
             {
                 handDragArea.SetRaycastTarget(false);
-                new HandApplyTool(hand, faceZone, character);
+                new HandApplyTool(hand, faceZone, character, () =>
+                {
+                    _nextButton.gameObject.SetActive(true);
+                    _prevButton.gameObject.SetActive(true);
+                });
             };
         }
     }
