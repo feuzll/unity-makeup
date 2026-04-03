@@ -33,7 +33,11 @@ namespace abc.DressUp.Interactions
                 .ChainCallback(target: this, target => 
                     character.ApplyViewState(Token, tool.TargetCharacterView))
                 .Chain(hand.DoBusyMoveToScreenXY(Token, toolReturnScreenXY + tool.HandGripOffset))
-                .ChainCallback(() => tool.InitialContainer.TakeTool(Token, tool))
+                .ChainCallback(() =>
+                {
+                    tool.DisableSorting(Token);
+                    tool.InitialContainer.TakeTool(Token, tool);
+                })
                 .Chain(hand.DoReturnToRest(Token))
                 .ChainCallback(target:this, target => callback?.Invoke());
         }

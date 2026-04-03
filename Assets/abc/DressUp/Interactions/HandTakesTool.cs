@@ -20,7 +20,11 @@ namespace abc.DressUp.Interactions
             
             Sequence.Create()
                 .Chain(hand.DoBusyMoveToScreenXY(Token, toolScreen + tool.HandGripOffset))
-                .ChainCallback(() => hand.TakeTool(Token, tool))
+                .ChainCallback(() =>
+                {
+                    tool.OverrideSorting(Token, hand.SortingOrder - 1);
+                    hand.TakeTool(Token, tool);
+                })
                 .Chain(readyMotionBuilder.BuildAndRunFor(Token, tool))
                 .ChainCallback(() => hand.Unbusy(Token))
                 .ChainCallback(callback);

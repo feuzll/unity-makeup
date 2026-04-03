@@ -10,6 +10,7 @@ namespace abc.DressUp.MonoView
 {
     [RequireComponent(typeof(RectTransform))]
     [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Canvas))]
     public class Tool : MonoBehaviour, ITool, IPointerClickHandler
     {
         [SerializeField] private ToolSlot initialContainer;
@@ -22,6 +23,7 @@ namespace abc.DressUp.MonoView
         private RectTransform _rectTransform;
         private Vector2 _localContainerPosition;
         [SerializeField] private Vector2 applyPointOffset;
+        private Canvas _ownCanvas;
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -30,6 +32,8 @@ namespace abc.DressUp.MonoView
         }
 
         public Canvas ScreenCanvas => screenCanvas;
+
+        Canvas ITool.OwnCanvas => _ownCanvas;
 
         public Vector2 HandGripOffset => handGripOffset;
 
@@ -94,6 +98,7 @@ namespace abc.DressUp.MonoView
 
         private void FillReferences()
         {
+            _ownCanvas = GetComponentInParent<Canvas>();
             if (_rectTransform == null)
                 _rectTransform = GetComponent<RectTransform>();
         }

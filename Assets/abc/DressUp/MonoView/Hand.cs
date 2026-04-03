@@ -2,12 +2,14 @@
 using System;
 using System.Collections;
 using abc.DressUp.Entities;
+using abc.DressUp.Interactions;
 using PrimeTween;
 using UnityEngine;
 
 namespace abc.DressUp.MonoView
 {
     [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Canvas))]
     public class Hand : MonoBehaviour, IHand
     {
         [SerializeField] private float moveSpeed;
@@ -19,11 +21,13 @@ namespace abc.DressUp.MonoView
         private Vector3 _worldRestPosition;
         private bool _canDrag;
         private Tween? _dragTween = null;
+        private Canvas _ownCanvas;
 
         public Vector3 WorldRestPosition => _worldRestPosition;
 
         private void TryFillReferences()
         {
+            _ownCanvas = GetComponent<Canvas>();
             if (screenCanvas == null) screenCanvas = GetComponentInParent<Canvas>();
             if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
             if (parentRect == null) parentRect = transform.parent.GetComponent<RectTransform>();
@@ -47,6 +51,8 @@ namespace abc.DressUp.MonoView
         }
 
         RectTransform IHand.Rect => rectTransform!;
+
+        public int SortingOrder => _ownCanvas.sortingOrder;
 
         float IDraggable.DragSpeed => moveSpeed;
 

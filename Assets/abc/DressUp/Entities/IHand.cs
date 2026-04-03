@@ -13,5 +13,6 @@ namespace abc.DressUp.Entities
         
         public float MoveSpeed { get; }
         public new RectTransform Rect { get; }
+        public int SortingOrder { get; }
     }
 }
