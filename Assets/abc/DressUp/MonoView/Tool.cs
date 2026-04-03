@@ -16,10 +16,12 @@ namespace abc.DressUp.MonoView
         [SerializeField] private ShakeSettings applySettings;
         [SerializeField] private Canvas screenCanvas;
         [SerializeField] protected ICharacter.ViewState targetCharacterView;
+        [SerializeField] private Vector2 handGripOffset;
         
         private ITool.IContainer _container;
         private RectTransform _rectTransform;
         private Vector2 _localContainerPosition;
+        [SerializeField] private Vector2 applyPointOffset;
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -28,6 +30,10 @@ namespace abc.DressUp.MonoView
         }
 
         public Canvas ScreenCanvas => screenCanvas;
+
+        public Vector2 HandGripOffset => handGripOffset;
+
+        public Vector2 ApplyPointOffset => applyPointOffset;
 
         public ITool.IContainer InitialContainer =>  initialContainer;
         

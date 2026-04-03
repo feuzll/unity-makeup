@@ -28,11 +28,11 @@ namespace abc.DressUp.Interactions
             
             
             Sequence.Create()
-                .Chain(hand.DoBusyMoveToScreenXY(Token, faceScreenXY))
+                .Chain(hand.DoBusyMoveToScreenXY(Token, faceScreenXY + tool.ApplyPointOffset))
                 .Chain(Tween.ShakeLocalPosition(hand.Rect, tool.ApplySettings))
                 .ChainCallback(target: this, target => 
                     character.ApplyViewState(Token, tool.TargetCharacterView))
-                .Chain(hand.DoBusyMoveToScreenXY(Token, toolReturnScreenXY))
+                .Chain(hand.DoBusyMoveToScreenXY(Token, toolReturnScreenXY + tool.HandGripOffset))
                 .ChainCallback(() => tool.InitialContainer.TakeTool(Token, tool))
                 .Chain(hand.DoReturnToRest(Token))
                 .ChainCallback(target:this, target => callback?.Invoke());

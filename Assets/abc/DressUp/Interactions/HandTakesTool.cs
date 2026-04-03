@@ -19,7 +19,7 @@ namespace abc.DressUp.Interactions
             var toolScreen = RectTransformUtility.WorldToScreenPoint(null, toolWorld);
             
             Sequence.Create()
-                .Chain(hand.DoBusyMoveToScreenXY(Token, toolScreen))
+                .Chain(hand.DoBusyMoveToScreenXY(Token, toolScreen + tool.HandGripOffset))
                 .ChainCallback(() => hand.TakeTool(Token, tool))
                 .Chain(readyMotionBuilder.BuildAndRunFor(Token, tool))
                 .ChainCallback(() => hand.Unbusy(Token))

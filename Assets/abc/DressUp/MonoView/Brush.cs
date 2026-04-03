@@ -12,10 +12,13 @@ namespace abc.DressUp.MonoView
         [SerializeField] private Image colorOverlay;
         [SerializeField] private BrushPage brushPage;
         [SerializeField] private ShakeSettings colorShakeSettings;
+        [SerializeField] private Vector2 handColorMoveOffset;
 
         IBrush.IColorSource IBrush.PendingColorSource { get; set; }
 
         public ShakeSettings ColorShakeSettings => colorShakeSettings;
+
+        public Vector2 BrushTipOffset => handColorMoveOffset;
 
         public void Color(Interaction.ExecutionToken token)
         {

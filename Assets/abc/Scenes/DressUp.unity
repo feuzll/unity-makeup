@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -2044,6 +2044,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &426490364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2254,7 +2256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -2277,6 +2279,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &498766675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,7 +2365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -2384,6 +2388,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &500851534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,7 +3124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -3141,6 +3147,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &748687823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5306,7 +5314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -5329,6 +5337,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &1350719826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8130,6 +8140,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 3
     value: 0
+  handGripOffset: {x: 40, y: 0}
+  applyPointOffset: {x: 0, y: 0}
 --- !u!1 &1877266789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6968055815780996578, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
@@ -13616,6 +13628,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 2
     value: 0
+  handGripOffset: {x: 20, y: 0}
+  applyPointOffset: {x: 0, y: -250}
   colorOverlay: {fileID: 1738841989}
   brushPage: {fileID: 1582277191}
   colorShakeSettings:
@@ -13638,6 +13652,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     _useFixedUpdate: 0
     _updateType: 0
+  handColorMoveOffset: {x: 0, y: 0}
 --- !u!1001 &1023939192590124794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14172,6 +14187,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 1
     value: 0
+  handGripOffset: {x: 20, y: 0}
+  applyPointOffset: {x: 0, y: -250}
   colorOverlay: {fileID: 1928364007}
   brushPage: {fileID: 1977333204}
   colorShakeSettings:
@@ -14194,6 +14211,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     _useFixedUpdate: 0
     _updateType: 0
+  handColorMoveOffset: {x: 0, y: 0}
 --- !u!1001 &3441749181623574527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14689,7 +14707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.Tool
   initialContainer: {fileID: 526730108}
   applySettings:
-    strength: {x: 3, y: 0, z: 0}
+    strength: {x: 20, y: 0, z: 0}
     duration: 1.5
     frequency: 10
     enableFalloff: 0
@@ -14712,6 +14730,8 @@ MonoBehaviour:
   targetCharacterView:
     type: 0
     value: 0
+  handGripOffset: {x: 15, y: 0}
+  applyPointOffset: {x: 0, y: -270}
 --- !u!114 &8369583809028716731
 MonoBehaviour:
   m_ObjectHideFlags: 0
