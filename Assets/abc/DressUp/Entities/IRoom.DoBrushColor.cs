@@ -18,6 +18,7 @@ namespace abc.DressUp.Entities
                 RectTransformUtility.WorldToScreenPoint(cam, colorSourceWorld);
             
             return Sequence.Create(hand.DoBusyMoveToScreenXY(token, colorSourceScreenXY))
+                .Chain(Tween.ShakeLocalPosition(hand.Rect, brush.ColorShakeSettings))
                 .ChainCallback(() => brush.Color(token));
         }
     }

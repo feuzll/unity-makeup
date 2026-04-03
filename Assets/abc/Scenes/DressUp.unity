@@ -13617,7 +13617,27 @@ MonoBehaviour:
     type: 2
     value: 0
   colorOverlay: {fileID: 1738841989}
-  brushPage: {fileID: 0}
+  brushPage: {fileID: 1582277191}
+  colorShakeSettings:
+    strength: {x: 20, y: 0, z: 0}
+    duration: 1
+    frequency: 10
+    enableFalloff: 0
+    falloffEase: 0
+    strengthOverTime:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    asymmetry: 0
+    easeBetweenShakes: 0
+    cycles: 1
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    _useFixedUpdate: 0
+    _updateType: 0
 --- !u!1001 &1023939192590124794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14154,6 +14174,26 @@ MonoBehaviour:
     value: 0
   colorOverlay: {fileID: 1928364007}
   brushPage: {fileID: 1977333204}
+  colorShakeSettings:
+    strength: {x: 20, y: 0, z: 0}
+    duration: 1
+    frequency: 10
+    enableFalloff: 0
+    falloffEase: 0
+    strengthOverTime:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    asymmetry: 0
+    easeBetweenShakes: 0
+    cycles: 1
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    _useFixedUpdate: 0
+    _updateType: 0
 --- !u!1001 &3441749181623574527
 PrefabInstance:
   m_ObjectHideFlags: 0
