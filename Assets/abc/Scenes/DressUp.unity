@@ -2658,6 +2658,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -7739910954114301499, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
   m_PrefabInstance: {fileID: 270936022}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &590057135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4810207472852877036, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
+  m_PrefabInstance: {fileID: 1394548595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &590057140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590057135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d816848a7f4dda97e6d00803a0385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.BrushColorProxy
+  brush: {fileID: 2070813938884770975}
 --- !u!1 &592135373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3890199268613343273, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
@@ -3620,6 +3638,10 @@ PrefabInstance:
       propertyPath: _source
       value: 
       objectReference: {fileID: 727564181334014591}
+    - target: {fileID: 745486385890345876, guid: 0c253490fdb9e23429804217ba571627, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2449067949840112300, guid: 0c253490fdb9e23429804217ba571627, type: 3}
       propertyPath: m_Name
       value: BlushBrushToolProxy
@@ -3627,7 +3649,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 844339514821059724, guid: 0c253490fdb9e23429804217ba571627, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1277294099}
   m_SourcePrefab: {fileID: 100100000, guid: 0c253490fdb9e23429804217ba571627, type: 3}
 --- !u!224 &980397104 stripped
 RectTransform:
@@ -5067,6 +5092,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4047051749320963475, guid: b9f892f7527f38a4d8c124c4c7faa55d, type: 3}
   m_PrefabInstance: {fileID: 1271721959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1277294094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 844339514821059724, guid: 0c253490fdb9e23429804217ba571627, type: 3}
+  m_PrefabInstance: {fileID: 980397103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1277294099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277294094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d816848a7f4dda97e6d00803a0385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::abc.DressUp.MonoView.BrushColorProxy
+  brush: {fileID: 727564181334014598}
 --- !u!1 &1320824821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5813,6 +5856,10 @@ PrefabInstance:
       propertyPath: _source
       value: 
       objectReference: {fileID: 2070813938884770971}
+    - target: {fileID: 4264651901403696801, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6216268879475257028, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
       propertyPath: m_Name
       value: EyeBrushToolProxy
@@ -5900,7 +5947,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4810207472852877036, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 590057140}
   m_SourcePrefab: {fileID: 100100000, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
 --- !u!224 &1394548596 stripped
 RectTransform:

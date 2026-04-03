@@ -13,6 +13,7 @@ namespace abc.DressUp.Entities
         public void Color(Interaction.ExecutionToken token);
         public void BindTo(Interaction.ExecutionToken token, IColorSource colorSource) 
             => PendingColorSource = colorSource;
+        public event Action<Color>? ColorChanged;
         
         public interface IColorSource
         {

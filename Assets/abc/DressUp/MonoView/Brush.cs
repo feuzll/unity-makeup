@@ -1,6 +1,8 @@
+#nullable enable
 using System;
 using abc.DressUp.Interactions;
 using abc.DressUp.Entities;
+using JetBrains.Annotations;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +16,7 @@ namespace abc.DressUp.MonoView
         [SerializeField] private ShakeSettings colorShakeSettings;
         [SerializeField] private Vector2 handColorMoveOffset;
 
-        IBrush.IColorSource IBrush.PendingColorSource { get; set; }
+        IBrush.IColorSource? IBrush.PendingColorSource { get; set; }
 
         public ShakeSettings ColorShakeSettings => colorShakeSettings;
 
@@ -25,6 +27,9 @@ namespace abc.DressUp.MonoView
             if (((IBrush)this).PendingColorSource == null) throw new ArgumentNullException();
             colorOverlay.color = ((IBrush)this).PendingColorSource!.Color;
             targetCharacterView = ((IBrush)this).PendingColorSource!.ViewState;
+            ColorChanged?.Invoke(colorOverlay.color);
         }
+
+        public event Action<Color>? ColorChanged;
     }
 }
