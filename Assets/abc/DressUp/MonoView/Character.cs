@@ -12,6 +12,17 @@ namespace abc.DressUp.MonoView
         [SerializeField] private List<GameObject> eyeShadows;
         [SerializeField] private List<GameObject> lips;
         [SerializeField] private List<GameObject> blushes;
+
+        public void ResetView()
+        {
+            acne.SetActive(true);
+            foreach (var eye in eyeShadows)
+                eye.SetActive(false);
+            foreach (var lip in lips)
+                lip.SetActive(false);
+            foreach (var blush in blushes)
+                blush.SetActive(false);
+        }
         
         public void ApplyViewState(Interaction.ExecutionToken token, ICharacter.ViewState viewState)
         {
