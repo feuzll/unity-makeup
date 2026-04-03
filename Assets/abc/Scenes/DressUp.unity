@@ -1300,9 +1300,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1359029891}
-    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1359029893}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
 --- !u!1 &278113616 stripped
@@ -1797,9 +1794,7 @@ GameObject:
   - component: {fileID: 331070167}
   - component: {fileID: 331070169}
   - component: {fileID: 331070168}
-  - component: {fileID: 331070170}
   - component: {fileID: 331070171}
-  - component: {fileID: 331070172}
   - component: {fileID: 331070173}
   m_Layer: 5
   m_Name: Hand
@@ -1865,24 +1860,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331070166}
   m_CullTransparentMesh: 1
---- !u!114 &331070170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331070166}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 492f810694f04241bae37685e18fbad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Hand
-  _canvas: {fileID: 1656463181}
-  _followDuration: 0.5
-  _followEase: 6
-  _returnToRestDuration: 1
-  _moveSpeed: 700
-  _returnToRestSpeed: 700
 --- !u!223 &331070171
 Canvas:
   m_ObjectHideFlags: 0
@@ -1906,21 +1883,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
---- !u!114 &331070172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331070166}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c1ef61213fe41f493494ef43b2c1f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.HandScope
-  moveSpeed: 600
-  handCanvas: {fileID: 1656463181}
-  followEase: 6
 --- !u!114 &331070173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,19 +1916,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2641971288693050842, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &426490357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426490353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &426490358
 Canvas:
   m_ObjectHideFlags: 0
@@ -2189,19 +2138,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9063004405169246150, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &498766668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498766664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &498766669
 Canvas:
   m_ObjectHideFlags: 0
@@ -2298,19 +2234,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8958295522172461991, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &500851527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500851523}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &500851528
 Canvas:
   m_ObjectHideFlags: 0
@@ -2917,8 +2840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7512c16b2d954825816b1935a51875e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.FaceZone
-  _hand: {fileID: 331070170}
+  _hand: {fileID: 0}
   _canvas: {fileID: 1656463181}
+  _rectTransform: {fileID: 0}
 --- !u!114 &624077884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,6 +2855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5e3bc0a3204a9abd12b77e4a0df0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.FaceZone
+  _rectTransform: {fileID: 0}
 --- !u!114 &624077885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,19 +3000,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3581102812530403399, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &748687816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748687812}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &748687817
 Canvas:
   m_ObjectHideFlags: 0
@@ -3189,9 +3101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 763392794}
   - component: {fileID: 763392796}
-  - component: {fileID: 763392797}
-  - component: {fileID: 763392798}
-  - component: {fileID: 763392799}
   - component: {fileID: 763392800}
   - component: {fileID: 763392801}
   m_Layer: 5
@@ -3230,48 +3139,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763392793}
   m_CullTransparentMesh: 1
---- !u!114 &763392797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763392793}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b3e150fffa4fa090a5c0a12c2cc89a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.DragArea
-  _hand: {fileID: 331070170}
-  _particles: {fileID: 763392798}
-  _canvas: {fileID: 1656463181}
-  _tapThreshold: 10
---- !u!114 &763392798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763392793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576745a2980b420cbe6d095cc4a1a551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.ParticlePlayer
-  _uiParticle: {fileID: 955671385}
---- !u!114 &763392799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763392793}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c186512ab1d14110a9657bdca4d97f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.HandDragAreaScope
-  handBuilder: {fileID: 331070172}
 --- !u!114 &763392800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3637,7 +3504,7 @@ PrefabInstance:
     - target: {fileID: 745486385890345876, guid: 0c253490fdb9e23429804217ba571627, type: 3}
       propertyPath: _source
       value: 
-      objectReference: {fileID: 727564181334014591}
+      objectReference: {fileID: 0}
     - target: {fileID: 745486385890345876, guid: 0c253490fdb9e23429804217ba571627, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3646,7 +3513,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlushBrushToolProxy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 318049967190601604, guid: 0c253490fdb9e23429804217ba571627, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4322,7 +4190,6 @@ GameObject:
   - component: {fileID: 1244867133}
   - component: {fileID: 1244867135}
   - component: {fileID: 1244867134}
-  - component: {fileID: 1244867136}
   - component: {fileID: 1244867137}
   m_Layer: 5
   m_Name: loofah
@@ -4388,19 +4255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244867132}
   m_CullTransparentMesh: 1
---- !u!114 &1244867136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244867132}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af8375c2bb04410aa9bd691871fdf6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.CleanSponge
-  _character: {fileID: 1359029891}
 --- !u!114 &1244867137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,9 +4302,6 @@ GameObject:
   - component: {fileID: 1261152042}
   - component: {fileID: 1261152040}
   - component: {fileID: 1261152041}
-  - component: {fileID: 1261152044}
-  - component: {fileID: 1261152045}
-  - component: {fileID: 1261152046}
   - component: {fileID: 1261152047}
   m_Layer: 5
   m_Name: BookPages
@@ -4592,50 +4443,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261152038}
   m_CullTransparentMesh: 1
---- !u!114 &1261152044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261152038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59255393a6f84c7198d041803023c665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.SelfRepeatingBookProAdapter
-  book: {fileID: 1261152040}
-  pageFlipTime: 1
---- !u!114 &1261152045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261152038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daac1b4296fc4b2d8c3a51b82b9ed17f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButtons
-  _hand: {fileID: 331070170}
-  _book: {fileID: 1261152044}
-  _nextButton: {fileID: 1268652530}
-  _prevButton: {fileID: 1884297031}
---- !u!114 &1261152046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261152038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e87e9ab7694125818c4464dbf512b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookPagesInteractables
-  _book: {fileID: 1261152044}
-  _interactables: []
 --- !u!114 &1261152047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4702,7 +4509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3271c0987b24d8dba517db25d71cef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButton
-  _book: {fileID: 1261152044}
+  _book: {fileID: 0}
   _direction: 0
   _breathScale: 1.2
   _breathPeriod: 1.2
@@ -5320,19 +5127,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7281521106587737494, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1350719819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350719815}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &1350719820
 Canvas:
   m_ObjectHideFlags: 0
@@ -5454,46 +5248,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: c026e825393d72f4794a69afbe7108ef, type: 3}
   m_PrefabInstance: {fileID: 270936022}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1359029891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359029889}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c898d412454bfdbfa777e4d0e4e517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Character
-  _acneOverlay: {fileID: 1877266789}
-  _lipColorObjects:
-  - {fileID: 385518001}
-  - {fileID: 821200893}
-  - {fileID: 278113616}
-  - {fileID: 2045892557}
-  - {fileID: 990146115}
-  - {fileID: 527289265}
-  _eyeshadowColorObjects:
-  - {fileID: 579202059}
-  - {fileID: 1166695281}
-  - {fileID: 1060780925}
-  - {fileID: 253563744}
-  - {fileID: 41239356}
-  - {fileID: 364106192}
-  - {fileID: 2075976136}
-  - {fileID: 484273100}
-  - {fileID: 882485192}
-  _coloredBlushObjects:
-  - {fileID: 595708246}
-  - {fileID: 1425364449}
-  - {fileID: 766189392}
-  - {fileID: 1814779426}
-  - {fileID: 1095625096}
-  - {fileID: 1072297501}
-  - {fileID: 1246576431}
-  - {fileID: 2095184386}
-  - {fileID: 1380863423}
 --- !u!114 &1359029893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,7 +5639,7 @@ PrefabInstance:
     - target: {fileID: 4264651901403696801, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
       propertyPath: _source
       value: 
-      objectReference: {fileID: 2070813938884770971}
+      objectReference: {fileID: 0}
     - target: {fileID: 4264651901403696801, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5974,7 +5728,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4264651901403696801, guid: d5afd5a4a0fe9924ba579e8bc80d317c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -6307,7 +6062,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -65
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7111,9 +6867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ffa59dafd534b41b354a949542cffa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.Room
-  handHandScope: {fileID: 331070172}
+  handHandScope: {fileID: 0}
   tools:
-  - {fileID: 1838465411}
+  - {fileID: 0}
   faceZone: {fileID: 624077884}
 --- !u!114 &1656463184
 MonoBehaviour:
@@ -8016,10 +7772,8 @@ GameObject:
   - component: {fileID: 1838465405}
   - component: {fileID: 1838465407}
   - component: {fileID: 1838465406}
-  - component: {fileID: 1838465408}
   - component: {fileID: 1838465409}
   - component: {fileID: 1838465410}
-  - component: {fileID: 1838465411}
   - component: {fileID: 1838465412}
   m_Layer: 5
   m_Name: Cream
@@ -8086,29 +7840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838465404}
   m_CullTransparentMesh: 1
---- !u!114 &1838465408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838465404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ba6417585f4b26a479d14653aae31e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Jar
-  _canvas: {fileID: 1656463181}
-  _hand: {fileID: 331070170}
-  _dragArea: {fileID: 763392797}
-  _character: {fileID: 1359029891}
-  _faceZone: {fileID: 624077883}
-  _pickupTweenDuration: 1.5
-  _applyTweenDuration: 1.5
-  _returnCreamDuration: 1.5
-  _shakeDuration: 1.5
-  _shakeStrength: 40
-  _gripOffset: {x: -40, y: -20}
 --- !u!223 &1838465409
 Canvas:
   m_ObjectHideFlags: 0
@@ -8149,40 +7880,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &1838465411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838465404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9889629b0159421a9610c161de255a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.Tool
-  initialContainer: {fileID: 1969664906}
-  handReady: 0
-  applySettings:
-    strength: {x: 50, y: 50, z: 0}
-    duration: 2
-    frequency: 10
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
 --- !u!114 &1838465412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8304,7 +8001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3271c0987b24d8dba517db25d71cef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.BookFlipButton
-  _book: {fileID: 1261152044}
+  _book: {fileID: 0}
   _direction: 1
   _breathScale: 1.2
   _breathPeriod: 1.2
@@ -8428,7 +8125,6 @@ GameObject:
   - component: {fileID: 1969664903}
   - component: {fileID: 1969664905}
   - component: {fileID: 1969664904}
-  - component: {fileID: 1969664906}
   - component: {fileID: 1969664907}
   m_Layer: 5
   m_Name: ShelfLeftImage
@@ -8495,18 +8191,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969664902}
   m_CullTransparentMesh: 1
---- !u!114 &1969664906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969664902}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16fbd0773934efda9c52271314a0b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Makeup.MonoBuilder.ToolSlot
 --- !u!114 &1969664907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13649,7 +13333,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2960329972489258449, guid: 1b377f200108a414585bcc7d55202e82, type: 3}
+    - {fileID: 9015314388835524166, guid: 1b377f200108a414585bcc7d55202e82, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -13660,17 +13346,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 727564181334014598}
   m_SourcePrefab: {fileID: 100100000, guid: 1b377f200108a414585bcc7d55202e82, type: 3}
---- !u!114 &727564181334014591 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9015314388835524166, guid: 1b377f200108a414585bcc7d55202e82, type: 3}
-  m_PrefabInstance: {fileID: 727564181334014590}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146984717}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e4233d995545348842e50f611d2ab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Brush
 --- !u!114 &727564181334014598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13988,15 +13663,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4235703227521332697, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 526730108}
-    - targetCorrespondingSourceObject: {fileID: 7617932344109311925, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9206817681861486662}
     - targetCorrespondingSourceObject: {fileID: 8645137760998797691, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8369583809028716725}
-    - targetCorrespondingSourceObject: {fileID: 8645137760998797691, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8369583809028716724}
     - targetCorrespondingSourceObject: {fileID: 8645137760998797691, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8369583809028716726}
@@ -14011,9 +13680,6 @@ PrefabInstance:
       addedObject: {fileID: 1350719820}
     - targetCorrespondingSourceObject: {fileID: 7281521106587737494, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1350719819}
-    - targetCorrespondingSourceObject: {fileID: 7281521106587737494, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1350719821}
     - targetCorrespondingSourceObject: {fileID: 7281521106587737494, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
@@ -14024,9 +13690,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2641971288693050842, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 426490358}
-    - targetCorrespondingSourceObject: {fileID: 2641971288693050842, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 426490357}
     - targetCorrespondingSourceObject: {fileID: 2641971288693050842, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 426490359}
@@ -14041,9 +13704,6 @@ PrefabInstance:
       addedObject: {fileID: 748687817}
     - targetCorrespondingSourceObject: {fileID: 3581102812530403399, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 748687816}
-    - targetCorrespondingSourceObject: {fileID: 3581102812530403399, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 748687818}
     - targetCorrespondingSourceObject: {fileID: 3581102812530403399, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
@@ -14056,9 +13716,6 @@ PrefabInstance:
       addedObject: {fileID: 500851528}
     - targetCorrespondingSourceObject: {fileID: 8958295522172461991, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 500851527}
-    - targetCorrespondingSourceObject: {fileID: 8958295522172461991, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 500851529}
     - targetCorrespondingSourceObject: {fileID: 8958295522172461991, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
@@ -14069,9 +13726,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9063004405169246150, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 498766669}
-    - targetCorrespondingSourceObject: {fileID: 9063004405169246150, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 498766668}
     - targetCorrespondingSourceObject: {fileID: 9063004405169246150, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 498766670}
@@ -14202,7 +13856,8 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7359132947061072724, guid: 1280fae7dd5f407459489d2d7cbddd55, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -14219,17 +13874,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2070813938884770975}
   m_SourcePrefab: {fileID: 100100000, guid: 1280fae7dd5f407459489d2d7cbddd55, type: 3}
---- !u!114 &2070813938884770971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7359132947061072724, guid: 1280fae7dd5f407459489d2d7cbddd55, type: 3}
-  m_PrefabInstance: {fileID: 2070813938884770970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924109011}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e4233d995545348842e50f611d2ab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Brush
 --- !u!114 &2070813938884770975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14331,11 +13975,11 @@ PrefabInstance:
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 331070170}
+      objectReference: {fileID: 0}
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _brush
       value: 
-      objectReference: {fileID: 2070813938884770971}
+      objectReference: {fileID: 0}
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _canvas
       value: 
@@ -14343,7 +13987,7 @@ PrefabInstance:
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _dragArea
       value: 
-      objectReference: {fileID: 763392797}
+      objectReference: {fileID: 0}
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _faceZone
       value: 
@@ -14355,7 +13999,7 @@ PrefabInstance:
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 1359029891}
+      objectReference: {fileID: 0}
     - target: {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
       propertyPath: _colorPickOffset.y
       value: -130
@@ -14680,7 +14324,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1878054843084744853, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 1006575881950879109, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 7248095964614634436, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 3407768807619054882, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 8808687201438991664, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 3475728928535789531, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 5180813480620655382, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 8203070816166821980, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 7967792332343873334, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
+    - {fileID: 3540350563246755341, guid: 85d5799d051bd764fb5f696d329b658d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -14720,19 +14374,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8645137760998797691, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
   m_PrefabInstance: {fileID: 1023939192590124794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8369583809028716724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8369583809028716723}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efb13050b024a89bc83f71c71d8c464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.Lipstick
-  _index: 0
 --- !u!223 &8369583809028716725
 Canvas:
   m_ObjectHideFlags: 0
@@ -15119,11 +14760,11 @@ PrefabInstance:
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 331070170}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _brush
       value: 
-      objectReference: {fileID: 727564181334014591}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _canvas
       value: 
@@ -15131,7 +14772,7 @@ PrefabInstance:
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _dragArea
       value: 
-      objectReference: {fileID: 763392797}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _faceZone
       value: 
@@ -15143,7 +14784,7 @@ PrefabInstance:
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 1359029891}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
       propertyPath: _faceOffset.x
       value: 100
@@ -15220,7 +14861,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5173387495825186040, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 3846039915521744979, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 8747420306334401240, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 2864721098773504730, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 7844662619528669568, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 7959593446547224752, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 2243539262526148509, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 8462464496926642667, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 37610483185730634, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
+    - {fileID: 3197577218358497950, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -15255,42 +14906,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 592135378}
   m_SourcePrefab: {fileID: 100100000, guid: e386127b45b6ecf488b865a585c40aaa, type: 3}
---- !u!1 &9206817681861486661 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7617932344109311925, guid: c076a9a586c52c542b75e4e7225f6640, type: 3}
-  m_PrefabInstance: {fileID: 1023939192590124794}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9206817681861486662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206817681861486661}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec15e172f853498b8e45828f53760c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::abc.Game.Unity.LipsticksPage
-  _hand: {fileID: 331070170}
-  _dragArea: {fileID: 763392797}
-  _character: {fileID: 1359029891}
-  _faceZone: {fileID: 624077883}
-  _canvas: {fileID: 1656463181}
-  _lipsticks:
-  - {fileID: 8369583809028716724}
-  - {fileID: 1350719819}
-  - {fileID: 426490357}
-  - {fileID: 748687816}
-  - {fileID: 500851527}
-  - {fileID: 498766668}
-  _pickupTweenDuration: 0.5
-  _applyTweenDuration: 2
-  _returnDuration: 1.5
-  _shakeDuration: 1.5
-  _shakeStrength: 18
-  _gripOffset: {x: -40, y: -20}
-  _lipsOffset: {x: 50, y: -150}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

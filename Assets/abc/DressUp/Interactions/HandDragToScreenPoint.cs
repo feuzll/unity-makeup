@@ -1,5 +1,4 @@
 using abc.DressUp.Entities;
-using abc.Makeup;
 using UnityEngine;
 
 namespace abc.DressUp.Interactions
